@@ -1,0 +1,18 @@
+{
+  "id": "rss-20260813-009",
+  "title": "Detecting a Route Flip Is Easier Than Knowing Whether to Fix It: Causal Route-Mediated Damage in Quantized Mixture-of-Experts",
+  "source": "rss:arXiv cs.AI",
+  "source_url": "https://arxiv.org/abs/2608.11212",
+  "author": "arXiv cs.AI",
+  "published_at": "2026-08-13T05:44:30.834618+00:00",
+  "collected_at": "2026-08-13T05:44:30.834618+00:00",
+  "summary": "研究量化混合专家（MoE）模型中的路由翻转：发现检测路由翻转比判断是否修复更容易，提出因果路由损伤分析框架。",
+  "score": 6,
+  "tags": [
+    "llm",
+    "reasoning"
+  ],
+  "audience": "advanced",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "rss-20260813-016",
+  "title": "Harnessing agent memory to build lifelong AI partners for materials scientists",
+  "source": "rss:arXiv cs.AI",
+  "source_url": "https://arxiv.org/abs/2608.11224",
+  "author": "arXiv cs.AI",
+  "published_at": "2026-08-13T05:44:30.834657+00:00",
+  "collected_at": "2026-08-13T05:44:30.834657+00:00",
+  "summary": "利用 agent 记忆为材料科学家构建终身 AI 伙伴，研究长周期人机协作中记忆积累与复用机制。",
+  "score": 7,
+  "tags": [
+    "agent",
+    "rag"
+  ],
+  "audience": "intermediate",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

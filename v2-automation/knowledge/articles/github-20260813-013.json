@@ -1,0 +1,18 @@
+{
+  "id": "github-20260813-013",
+  "title": "mem0ai/mem0",
+  "source": "github",
+  "source_url": "https://github.com/mem0ai/mem0",
+  "author": "mem0ai",
+  "published_at": "2026-08-13T02:35:11Z",
+  "collected_at": "2026-08-13T05:44:24.672180+00:00",
+  "summary": "为 AI Agent 提供的通用记忆层，统一长短期记忆、用户偏好与状态管理，让无状态 LLM 应用获得持久化记忆能力，是 agent 记忆赛道的代表项目。",
+  "score": 8,
+  "tags": [
+    "agent",
+    "rag"
+  ],
+  "audience": "intermediate",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

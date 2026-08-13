@@ -1,0 +1,17 @@
+{
+  "id": "rss-20260813-013",
+  "title": "From Monolithic to Modular: Segment-level Automatic Prompt Optimization",
+  "source": "rss:arXiv cs.AI",
+  "source_url": "https://arxiv.org/abs/2608.11219",
+  "author": "arXiv cs.AI",
+  "published_at": "2026-08-13T05:44:30.834640+00:00",
+  "collected_at": "2026-08-13T05:44:30.834640+00:00",
+  "summary": "从整段优化转向分段自动提示词优化（APO），将提示按模块拆解分别优化，提升大提示词的优化稳定性与可解释性。",
+  "score": 6,
+  "tags": [
+    "prompt-engineering"
+  ],
+  "audience": "advanced",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

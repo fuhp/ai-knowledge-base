@@ -1,0 +1,18 @@
+{
+  "id": "rss-20260813-012",
+  "title": "MaSRead: Content-Addressed Reading of Replicated Latent Stores",
+  "source": "rss:arXiv cs.AI",
+  "source_url": "https://arxiv.org/abs/2608.11218",
+  "author": "arXiv cs.AI",
+  "published_at": "2026-08-13T05:44:30.834633+00:00",
+  "collected_at": "2026-08-13T05:44:30.834633+00:00",
+  "summary": "MaSRead：面向复制式潜在存储（latent stores）的内容寻址读取方案，涉及存储与检索架构优化。",
+  "score": 5,
+  "tags": [
+    "rag",
+    "deployment"
+  ],
+  "audience": "advanced",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

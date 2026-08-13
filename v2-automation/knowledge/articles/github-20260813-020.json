@@ -1,0 +1,18 @@
+{
+  "id": "github-20260813-020",
+  "title": "CopilotKit/CopilotKit",
+  "source": "github",
+  "source_url": "https://github.com/CopilotKit/CopilotKit",
+  "author": "CopilotKit",
+  "published_at": "2026-08-12T22:23:15Z",
+  "collected_at": "2026-08-13T05:44:24.672222+00:00",
+  "summary": "面向 Agent 与生成式 UI 的前端技术栈，支持 React/Angular/Mobile 等，同时是 AG-UI 协议的制定者，推动 agent 交互层标准化。",
+  "score": 7,
+  "tags": [
+    "agent",
+    "tool-use"
+  ],
+  "audience": "intermediate",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "github-20260813-009",
+  "title": "OpenHands/OpenHands",
+  "source": "github",
+  "source_url": "https://github.com/OpenHands/OpenHands",
+  "author": "OpenHands",
+  "published_at": "2026-08-13T03:24:05Z",
+  "collected_at": "2026-08-13T05:44:24.672155+00:00",
+  "summary": "前身为 OpenDevin 的 AI 驱动开发平台，Agent 可自主完成代码修改、测试与执行，支持多模型后端，是自动化软件工程方向的代表性开源项目。",
+  "score": 7,
+  "tags": [
+    "agent",
+    "code-generation"
+  ],
+  "audience": "intermediate",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

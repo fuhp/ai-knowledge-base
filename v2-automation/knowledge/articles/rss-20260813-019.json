@@ -1,0 +1,18 @@
+{
+  "id": "rss-20260813-019",
+  "title": "Forecasting Side Effects of Activation Steering",
+  "source": "rss:arXiv cs.AI",
+  "source_url": "https://arxiv.org/abs/2608.11227",
+  "author": "arXiv cs.AI",
+  "published_at": "2026-08-13T05:44:30.834675+00:00",
+  "collected_at": "2026-08-13T05:44:30.834675+00:00",
+  "summary": "研究激活引导（activation steering）的副作用预测，为可控生成技术提供安全评估方法。",
+  "score": 7,
+  "tags": [
+    "reasoning",
+    "security"
+  ],
+  "audience": "advanced",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

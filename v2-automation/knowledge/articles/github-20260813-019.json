@@ -1,0 +1,18 @@
+{
+  "id": "github-20260813-019",
+  "title": "AstrBotDevs/AstrBot",
+  "source": "github",
+  "source_url": "https://github.com/AstrBotDevs/AstrBot",
+  "author": "AstrBotDevs",
+  "published_at": "2026-08-13T04:09:12Z",
+  "collected_at": "2026-08-13T05:44:24.672216+00:00",
+  "summary": "接入 QQ/Telegram/Discord 等大量 IM 平台的 AI 助手与开发框架，支持插件扩展与多模型，定位 openclaw 的开源替代，侧重社交平台场景的 agent 落地。",
+  "score": 6,
+  "tags": [
+    "agent",
+    "deployment"
+  ],
+  "audience": "intermediate",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

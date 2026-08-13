@@ -1,0 +1,18 @@
+{
+  "id": "github-20260813-005",
+  "title": "browser-use/browser-use",
+  "source": "github",
+  "source_url": "https://github.com/browser-use/browser-use",
+  "author": "browser-use",
+  "published_at": "2026-08-11T17:33:21Z",
+  "collected_at": "2026-08-13T05:44:24.672130+00:00",
+  "summary": "基于 Playwright 的浏览器自动化 agent 框架，让 AI 能像人一样操作网页完成复杂任务，是大模型“网页操作”能力落地最活跃的开源项目之一。",
+  "score": 8,
+  "tags": [
+    "agent",
+    "tool-use"
+  ],
+  "audience": "intermediate",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

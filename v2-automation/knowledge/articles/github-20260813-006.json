@@ -1,0 +1,18 @@
+{
+  "id": "github-20260813-006",
+  "title": "DietrichGebert/ponytail",
+  "source": "github",
+  "source_url": "https://github.com/DietrichGebert/ponytail",
+  "author": "DietrichGebert",
+  "published_at": "2026-08-07T21:44:01Z",
+  "collected_at": "2026-08-13T05:44:24.672136+00:00",
+  "summary": "面向 Claude Code/Cursor 的 agent skills 与规则集合，核心理念是“最懒的资深开发者”：让 AI 少写冗余代码、遵循 YAGNI 原则，属于提示工程与开发文化的实践合集。",
+  "score": 6,
+  "tags": [
+    "prompt-engineering",
+    "agent"
+  ],
+  "audience": "intermediate",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

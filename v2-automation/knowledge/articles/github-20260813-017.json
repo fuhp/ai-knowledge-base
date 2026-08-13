@@ -1,0 +1,18 @@
+{
+  "id": "github-20260813-017",
+  "title": "zhayujie/CowAgent",
+  "source": "github",
+  "source_url": "https://github.com/zhayujie/CowAgent",
+  "author": "zhayujie",
+  "published_at": "2026-08-13T01:43:00Z",
+  "collected_at": "2026-08-13T05:44:24.672204+00:00",
+  "summary": "开源超级 AI 助手与 Agent Harness（原 chatgpt-on-wechat），支持任务规划、工具与技能调用、记忆自进化，多模型多平台、一行命令安装，适合个人自部署 agent 助手。",
+  "score": 6,
+  "tags": [
+    "agent",
+    "tool-use"
+  ],
+  "audience": "intermediate",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

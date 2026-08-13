@@ -1,0 +1,18 @@
+{
+  "id": "rss-20260813-014",
+  "title": "LLMs in Process Diagram Engineering: From Optimal PFDs to Validated P&amp;IDs",
+  "source": "rss:arXiv cs.AI",
+  "source_url": "https://arxiv.org/abs/2608.11220",
+  "author": "arXiv cs.AI",
+  "published_at": "2026-08-13T05:44:30.834644+00:00",
+  "collected_at": "2026-08-13T05:44:30.834644+00:00",
+  "summary": "将 LLM 用于流程工业图表工程：从最优工艺流程图（PFD）到验证后的管道仪表图（P&ID），探索工业领域 LLM 应用。",
+  "score": 5,
+  "tags": [
+    "reasoning",
+    "deployment"
+  ],
+  "audience": "intermediate",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

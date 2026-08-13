@@ -1,0 +1,17 @@
+{
+  "id": "rss-20260813-006",
+  "title": "Dynamic Governance of Multi-LLM Agent Systems for Collaborative Conversational Outcomes",
+  "source": "rss:arXiv cs.AI",
+  "source_url": "https://arxiv.org/abs/2608.11207",
+  "author": "arXiv cs.AI",
+  "published_at": "2026-08-13T05:44:30.834571+00:00",
+  "collected_at": "2026-08-13T05:44:30.834571+00:00",
+  "summary": "研究多 LLM Agent 系统的动态治理机制，目标是让多智能体在协作对话中达成一致结果，探索无中心协调器的治理架构。",
+  "score": 6,
+  "tags": [
+    "multi-agent"
+  ],
+  "audience": "advanced",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

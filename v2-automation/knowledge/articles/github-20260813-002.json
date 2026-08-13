@@ -1,0 +1,19 @@
+{
+  "id": "github-20260813-002",
+  "title": "langgenius/dify",
+  "source": "github",
+  "source_url": "https://github.com/langgenius/dify",
+  "author": "langgenius",
+  "published_at": "2026-08-13T05:36:04Z",
+  "collected_at": "2026-08-13T05:44:24.672101+00:00",
+  "summary": "业界最流行的开源 LLM 应用编排平台之一，通过可视化画布搭建 Agent 工作流、RAG 管线，支持主流模型与 MCP 工具，可云端/私有化部署，是团队从原型到生产的完整底座。",
+  "score": 9,
+  "tags": [
+    "agent",
+    "rag",
+    "deployment"
+  ],
+  "audience": "intermediate",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

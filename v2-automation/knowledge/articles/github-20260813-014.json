@@ -1,0 +1,18 @@
+{
+  "id": "github-20260813-014",
+  "title": "aaif-goose/goose",
+  "source": "github",
+  "source_url": "https://github.com/aaif-goose/goose",
+  "author": "aaif-goose",
+  "published_at": "2026-08-13T04:39:32Z",
+  "collected_at": "2026-08-13T05:44:24.672186+00:00",
+  "summary": "开源可扩展 AI Agent（Rust 实现），定位不止于代码建议：可安装、执行、编辑与测试，支持 MCP 与任意 LLM 后端，强调本地可控的 agent 执行。",
+  "score": 7,
+  "tags": [
+    "agent",
+    "code-generation"
+  ],
+  "audience": "intermediate",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

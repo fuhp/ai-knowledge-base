@@ -1,0 +1,19 @@
+{
+  "id": "github-20260813-010",
+  "title": "bytedance/deer-flow",
+  "source": "github",
+  "source_url": "https://github.com/bytedance/deer-flow",
+  "author": "bytedance",
+  "published_at": "2026-08-12T03:47:25Z",
+  "collected_at": "2026-08-13T05:44:24.672161+00:00",
+  "summary": "字节跳动开源的长时程 SuperAgent harness，通过沙箱、记忆、工具、技能与子代理组合处理分钟到小时级的复杂任务，体现多智能体协作的工程实践。",
+  "score": 8,
+  "tags": [
+    "multi-agent",
+    "agent",
+    "tool-use"
+  ],
+  "audience": "advanced",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

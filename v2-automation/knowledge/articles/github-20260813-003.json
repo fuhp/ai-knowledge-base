@@ -1,0 +1,18 @@
+{
+  "id": "github-20260813-003",
+  "title": "langchain-ai/langchain",
+  "source": "github",
+  "source_url": "https://github.com/langchain-ai/langchain",
+  "author": "langchain-ai",
+  "published_at": "2026-08-13T02:31:03Z",
+  "collected_at": "2026-08-13T05:44:24.672114+00:00",
+  "summary": "LangChain 核心仓库，定位 Agent 工程平台，围绕 LangGraph 提供 agent 编排、工具集成与生态标准，是当前 agent 开发的事实标准框架之一。",
+  "score": 7,
+  "tags": [
+    "agent",
+    "tool-use"
+  ],
+  "audience": "intermediate",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

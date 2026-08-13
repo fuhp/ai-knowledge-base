@@ -1,0 +1,18 @@
+{
+  "id": "github-20260813-011",
+  "title": "hiyouga/LlamaFactory",
+  "source": "github",
+  "source_url": "https://github.com/hiyouga/LlamaFactory",
+  "author": "hiyouga",
+  "published_at": "2026-08-10T03:20:42Z",
+  "collected_at": "2026-08-13T05:44:24.672167+00:00",
+  "summary": "统一微调 100+ LLM/VLM 的框架（ACL 2024），集成 LoRA/QLoRA、量化、RLHF 等主流高效微调方法，是学术界与工业界最常用的微调工具之一。",
+  "score": 8,
+  "tags": [
+    "fine-tuning",
+    "llm"
+  ],
+  "audience": "advanced",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

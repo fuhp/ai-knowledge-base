@@ -1,0 +1,19 @@
+{
+  "id": "github-20260813-016",
+  "title": "jeecgboot/JeecgBoot",
+  "source": "github",
+  "source_url": "https://github.com/jeecgboot/JeecgBoot",
+  "author": "jeecgboot",
+  "published_at": "2026-08-10T04:02:41Z",
+  "collected_at": "2026-08-13T05:44:24.672198+00:00",
+  "summary": "企业级 AI 低代码平台，宣称一句话生成前后端代码乃至整个系统，内置 AI 聊天、知识库、流程编排与 MCP 插件，探索“Skills 生成→配置→代码生成”的开发范式。",
+  "score": 6,
+  "tags": [
+    "code-generation",
+    "agent",
+    "deployment"
+  ],
+  "audience": "intermediate",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

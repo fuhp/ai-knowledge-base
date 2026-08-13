@@ -1,0 +1,18 @@
+{
+  "id": "rss-20260813-020",
+  "title": "Synchronizing Beliefs with Second-Order Theory-of-Mind in Human-Autonomy Teams (Extended Version)",
+  "source": "rss:arXiv cs.AI",
+  "source_url": "https://arxiv.org/abs/2608.11229",
+  "author": "arXiv cs.AI",
+  "published_at": "2026-08-13T05:44:30.834679+00:00",
+  "collected_at": "2026-08-13T05:44:30.834679+00:00",
+  "summary": "人机自主团队中的二阶心智理论同步：让 AI 推理“人类对我的推理的推理”，改进人机协作信念对齐。",
+  "score": 6,
+  "tags": [
+    "multi-agent",
+    "reasoning"
+  ],
+  "audience": "advanced",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}

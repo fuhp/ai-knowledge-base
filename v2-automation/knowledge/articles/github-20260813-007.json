@@ -1,0 +1,18 @@
+{
+  "id": "github-20260813-007",
+  "title": "earendil-works/pi",
+  "source": "github",
+  "source_url": "https://github.com/earendil-works/pi",
+  "author": "earendil-works",
+  "published_at": "2026-08-12T22:53:26Z",
+  "collected_at": "2026-08-13T05:44:24.672143+00:00",
+  "summary": "AI Agent 工具包：统一 LLM API 抽象、agent 执行循环、终端 TUI 与编码 agent CLI 一体化，目标是减少多框架接入的碎片化成本。",
+  "score": 7,
+  "tags": [
+    "agent",
+    "tool-use"
+  ],
+  "audience": "intermediate",
+  "status": "draft",
+  "updated_at": "2026-08-13T07:11:30.899211+00:00"
+}
