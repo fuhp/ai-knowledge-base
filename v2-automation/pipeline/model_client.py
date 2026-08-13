@@ -75,15 +75,140 @@ def estimate_cost(model: str, usage: Usage) -> float:
     )
 
 
+# ── 成本追踪（单位：元/百万 tokens） ──────────────────────────────────────
+
+CNY_PRICING: dict[str, dict[str, float]] = {
+    "deepseek": {"input": 1.0, "output": 2.0},
+    "qwen": {"input": 4.0, "output": 12.0},
+    "openai": {"input": 150.0, "output": 600.0},  # gpt-4o-mini
+}
+
+
+class CostTracker:
+    """追踪 LLM 调用的 token 消耗与估算成本（人民币）。
+
+    适用于单线程流水线场景；如用于并发环境，请自行加锁。
+
+    Attributes:
+        _prices: 各提供商价格表（元/百万 tokens）
+        _stats: 各提供商的累计调用统计
+    """
+
+    def __init__(self, pricing: dict[str, dict[str, float]] | None = None) -> None:
+        self._prices = pricing if pricing is not None else CNY_PRICING
+        self._stats: dict[str, dict[str, int]] = {}
+
+    def record(self, usage: Usage | dict[str, int], provider: str) -> None:
+        """记录一次 API 调用的 token 用量。
+
+        Args:
+            usage: 本次调用的用量（Usage 对象，或含
+                prompt_tokens/completion_tokens 的字典）
+            provider: 提供商名称（deepseek/qwen/openai）
+        """
+        if isinstance(usage, dict):
+            prompt_tokens = int(usage.get("prompt_tokens", 0))
+            completion_tokens = int(usage.get("completion_tokens", 0))
+        else:
+            prompt_tokens = usage.prompt_tokens
+            completion_tokens = usage.completion_tokens
+
+        stats = self._stats.setdefault(
+            provider,
+            {"calls": 0, "prompt_tokens": 0, "completion_tokens": 0},
+        )
+        stats["calls"] += 1
+        stats["prompt_tokens"] += prompt_tokens
+        stats["completion_tokens"] += completion_tokens
+
+    def estimated_cost(self, provider: str) -> float:
+        """返回指定提供商的累计估算成本（元）。
+
+        Args:
+            provider: 提供商名称（deepseek/qwen/openai）
+
+        Returns:
+            估算成本，单位元
+
+        Raises:
+            ValueError: 价格表中不存在该提供商
+        """
+        prices = self._prices.get(provider)
+        if prices is None:
+            raise ValueError(
+                f"价格表中不存在提供商: {provider}，"
+                f"支持: {', '.join(sorted(self._prices.keys()))}"
+            )
+        stats = self._stats.get(
+            provider, {"calls": 0, "prompt_tokens": 0, "completion_tokens": 0}
+        )
+        return (
+            stats["prompt_tokens"] / 1_000_000 * prices["input"]
+            + stats["completion_tokens"] / 1_000_000 * prices["output"]
+        )
+
+    def report(self, provider: str | None = None) -> None:
+        """打印成本报告。
+
+        Args:
+            provider: 提供商名称；为 None 时报告全部已记录提供商并汇总
+        """
+        providers = [provider] if provider else list(self._stats.keys())
+        if not providers:
+            print("暂无 LLM 调用记录，无法生成成本报告。")
+            return
+
+        print(f"\n{'='*50}")
+        print("LLM 成本报告（估算，人民币）")
+        print(f"{'='*50}")
+
+        total_tokens = 0
+        total_cost = 0.0
+        for name in providers:
+            stats = self._stats.get(name)
+            if stats is None:
+                print(f"\n  提供商: {name}（无调用记录）")
+                continue
+
+            tokens = stats["prompt_tokens"] + stats["completion_tokens"]
+            total_tokens += tokens
+            if name in self._prices:
+                cost = self.estimated_cost(name)
+                total_cost += cost
+                cost_text = f"¥{cost:.6f}"
+            else:
+                cost_text = "N/A（价格表缺失）"
+
+            print(f"\n  提供商: {name}")
+            print(f"    调用次数: {stats['calls']}")
+            print(f"    Prompt tokens: {stats['prompt_tokens']}")
+            print(f"    Completion tokens: {stats['completion_tokens']}")
+            print(f"    估算成本: {cost_text}")
+
+        if provider is None and len(self._stats) > 1:
+            print(f"\n  汇总:")
+            print(f"    总 tokens: {total_tokens}")
+            print(f"    总成本: ¥{total_cost:.6f}")
+
+        print(f"{'='*50}\n")
+
+
+# 全局成本追踪实例，供 Pipeline 结束时调用 report()
+cost_tracker = CostTracker()
+
+
 # ── Provider 抽象基类 ────────────────────────────────────────────────────
 
 class LLMProvider(ABC):
     """LLM 提供商抽象基类"""
 
-    def __init__(self, api_key: str, base_url: str, model: str):
+    def __init__(
+        self, api_key: str, base_url: str, model: str, name: str = "unknown"
+    ):
         self.api_key = api_key
         self.base_url = base_url.rstrip("/")
         self.model = model
+        self.name = name
         self.client = httpx.Client(timeout=60.0)
 
     @abstractmethod
@@ -205,7 +330,9 @@ def create_provider(provider_name: str | None = None) -> LLMProvider:
     model = os.getenv(config["model_env"], config["default_model"])
 
     logger.info("创建 LLM 客户端: provider=%s, model=%s", name, model)
-    return OpenAICompatibleProvider(api_key=api_key, base_url=base_url, model=model)
+    return OpenAICompatibleProvider(
+        api_key=api_key, base_url=base_url, model=model, name=name
+    )
 
 
 # ── 带重试的调用封装 ──────────────────────────────────────────────────────
@@ -246,6 +373,7 @@ def chat_with_retry(
             )
             if attempt > 0:
                 logger.info("第 %d 次重试成功", attempt)
+            cost_tracker.record(response.usage, provider.name)
             return response
 
         except (httpx.HTTPStatusError, httpx.ConnectError, httpx.TimeoutException) as e:
