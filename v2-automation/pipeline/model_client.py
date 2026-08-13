@@ -9,7 +9,9 @@ from __future__ import annotations
 
 import os
 import time
+import json
 import logging
+from pathlib import Path
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import Any
@@ -191,6 +193,32 @@ class CostTracker:
             print(f"    总成本: ¥{total_cost:.6f}")
 
         print(f"{'='*50}\n")
+
+    def to_dict(self) -> dict[str, Any]:
+        """返回可 JSON 序列化的统计快照。
+
+        Returns:
+            包含各提供商统计与估算成本（元）的字典
+        """
+        return {
+            "stats": self._stats,
+            "costs_cny": {
+                name: round(self.estimated_cost(name), 6)
+                for name in self._stats
+                if name in self._prices
+            },
+        }
+
+    def save(self, path: str | Path) -> None:
+        """将统计结果保存为 JSON 文件。
+
+        Args:
+            path: 输出文件路径（如 logs/cost_report.json）
+        """
+        output = Path(path)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        with open(output, "w", encoding="utf-8") as f:
+            json.dump(self.to_dict(), f, ensure_ascii=False, indent=2)
 
 
 # 全局成本追踪实例，供 Pipeline 结束时调用 report()
@@ -429,6 +457,12 @@ def chat(
             response.usage.total_tokens,
             cost,
         )
+        # 成功后记录 token 消耗
+        usage = result.get("usage", {})
+        if usage:
+            cost_tracker.record(usage, provider or "deepseek")
+
+        cost_tracker.save("logs/cost_report.json")
         return result
     finally:
         llm.close()
