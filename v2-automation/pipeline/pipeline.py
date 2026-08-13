@@ -17,6 +17,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from model_client import cost_tracker
 
 import httpx
 import yaml
@@ -416,6 +417,9 @@ def run_pipeline(
     print(f"# 采集: {stats['collected']} → 分析: {stats['analyzed']} "
           f"→ 整理: {stats['organized']} → 保存: {stats['saved']}")
     print(f"{'#'*60}\n")
+
+    # 在 run_pipeline() 末尾
+    cost_tracker.report(provider="deepseek")
 
     return stats
 
