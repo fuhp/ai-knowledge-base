@@ -1,4 +1,4 @@
-name: Daily AI Knowledge Collection
+name: Daily AI Knowledge Collection Hangzhou
 
 # 每天 UTC 08:00（北京时间 16:00）自动采集
 on:
