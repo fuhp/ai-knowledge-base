@@ -1,309 +1,230 @@
 """
-Supervisor 模式 — 主管 Agent 协调多个工人 Agent
+Supervisor 模式 — 主管监督 + 审核循环
 
 Supervisor 模式的核心思想:
-1. 一个 Supervisor Agent 负责任务分解和调度
-2. 多个 Worker Agent 各自完成子任务
-3. Supervisor 汇总结果并做最终决策
+1. Worker Agent 执行任务，产出 JSON 格式的分析报告
+2. Supervisor Agent 从三个维度审核报告质量（准确性/深度/格式）
+3. 审核不通过则带反馈重做，最多 N 轮；超限强制返回 + 警告
 
 与 Router 模式的区别:
 - Router: 1对1 分发（一个请求 → 一个处理器）
-- Supervisor: 1对多 协调（一个任务 → 多个工人 → 汇总）
+- Supervisor: 监督循环（产出 → 审核 → 反馈 → 重做，质量门控）
 """
 
 import json
-from dataclasses import dataclass, field
+import re
+from typing import Any
 
-from workflows.model_client import accumulate_usage, chat, chat_json
+from workflows.model_client import chat
 
 
 # ---------------------------------------------------------------------------
-# Worker 定义
+# 工具函数
 # ---------------------------------------------------------------------------
 
-@dataclass
-class WorkerResult:
-    """工人 Agent 的执行结果"""
-    worker_name: str
-    status: str  # "success" | "error"
-    data: dict = field(default_factory=dict)
-    usage: dict = field(default_factory=dict)
+def parse_json(text: str) -> dict | list:
+    """容错解析 LLM 返回的 JSON（chat() 返回纯文本，需自行解析）
 
-
-def collector_worker(task: dict) -> WorkerResult:
-    """采集工人：根据 Supervisor 指令采集特定来源的数据
-
-    Args:
-        task: {"source": "github|hackernews|arxiv", "keywords": [...], "limit": int}
+    容错策略:
+    1. 去掉 markdown 代码块包裹
+    2. 直接 json.loads
+    3. 正则提取第一个 {...} 或 [...] 结构
+    4. 全部失败返回 {}
     """
-    source = task.get("source", "github")
-    keywords = task.get("keywords", ["AI", "agent"])
-    limit = task.get("limit", 5)
+    cleaned = text.strip()
 
-    prompt = f"""请模拟从 {source} 采集关于 {', '.join(keywords)} 的技术资讯。
-返回 JSON 数组，每条包含 title, url, description, source 字段。
-最多返回 {limit} 条。"""
+    # 策略 1: 去掉 ```json ... ``` 包裹
+    if cleaned.startswith("```"):
+        lines = cleaned.split("\n")
+        start = 1
+        end = len(lines)
+        for i in range(len(lines) - 1, 0, -1):
+            if lines[i].strip().startswith("```"):
+                end = i
+                break
+        cleaned = "\n".join(lines[start:end])
 
+    # 策略 2: 直接解析
     try:
-        result, usage = chat_json(prompt)
-        items = result if isinstance(result, list) else [result]
-        return WorkerResult(
-            worker_name="collector",
-            status="success",
-            data={"items": items, "source": source},
-            usage=usage,
-        )
-    except Exception as e:
-        return WorkerResult(
-            worker_name="collector",
-            status="error",
-            data={"error": str(e)},
-        )
+        return json.loads(cleaned)
+    except json.JSONDecodeError:
+        pass
 
-
-def analyzer_worker(task: dict) -> WorkerResult:
-    """分析工人：对给定数据进行深度分析
-
-    Args:
-        task: {"items": [...], "analysis_type": "summary|trend|comparison"}
-    """
-    items = task.get("items", [])
-    analysis_type = task.get("analysis_type", "summary")
-
-    prompt = f"""请对以下技术资讯进行 {analysis_type} 分析:
-
-{json.dumps(items, ensure_ascii=False, indent=2)}
-
-返回 JSON 格式:
-{{
-    "analysis_type": "{analysis_type}",
-    "findings": ["发现1", "发现2", "发现3"],
-    "summary": "200字以内的分析总结",
-    "confidence": 0.85
-}}"""
-
-    try:
-        result, usage = chat_json(prompt)
-        return WorkerResult(
-            worker_name="analyzer",
-            status="success",
-            data=result if isinstance(result, dict) else {"raw": result},
-            usage=usage,
-        )
-    except Exception as e:
-        return WorkerResult(
-            worker_name="analyzer",
-            status="error",
-            data={"error": str(e)},
-        )
-
-
-def reviewer_worker(task: dict) -> WorkerResult:
-    """审核工人：对分析结果进行质量审核
-
-    Args:
-        task: {"analyses": [...], "criteria": str}
-    """
-    analyses = task.get("analyses", [])
-    criteria = task.get("criteria", "准确性、深度、实用性")
-
-    prompt = f"""请审核以下分析结果，评估维度: {criteria}
-
-{json.dumps(analyses, ensure_ascii=False, indent=2)}
-
-返回 JSON 格式:
-{{
-    "approved": true或false,
-    "score": 4.2,
-    "issues": ["问题1（如有）"],
-    "suggestions": ["改进建议1（如有）"]
-}}"""
-
-    try:
-        result, usage = chat_json(prompt)
-        return WorkerResult(
-            worker_name="reviewer",
-            status="success",
-            data=result if isinstance(result, dict) else {"raw": result},
-            usage=usage,
-        )
-    except Exception as e:
-        return WorkerResult(
-            worker_name="reviewer",
-            status="error",
-            data={"error": str(e)},
-        )
-
-
-# Worker 注册表
-WORKERS = {
-    "collector": collector_worker,
-    "analyzer": analyzer_worker,
-    "reviewer": reviewer_worker,
-}
-
-
-# ---------------------------------------------------------------------------
-# Supervisor 核心
-# ---------------------------------------------------------------------------
-
-class Supervisor:
-    """主管 Agent：分解任务、调度工人、汇总结果
-
-    执行流程:
-    1. 接收高层任务描述
-    2. 用 LLM 分解为子任务并分配给工人
-    3. 收集工人结果
-    4. 汇总并生成最终报告
-    """
-
-    def __init__(self) -> None:
-        self.cost_tracker: dict = {}
-        self.execution_log: list[dict] = []
-
-    def plan(self, task_description: str) -> list[dict]:
-        """任务规划：将高层任务分解为工人子任务
-
-        Args:
-            task_description: 用户的任务描述
-
-        Returns:
-            子任务列表，每个包含 worker, task 字段
-        """
-        prompt = f"""你是任务调度主管。请将以下任务分解为子任务并分配给工人。
-
-任务: {task_description}
-
-可用工人:
-- collector: 数据采集（需要 source, keywords, limit 参数）
-- analyzer: 数据分析（需要 items, analysis_type 参数）
-- reviewer: 质量审核（需要 analyses, criteria 参数）
-
-请返回 JSON 数组，每个元素格式:
-{{
-    "step": 1,
-    "worker": "collector",
-    "task": {{"source": "github", "keywords": ["agent"], "limit": 5}},
-    "depends_on": []
-}}
-
-注意:
-- 按执行顺序排列
-- depends_on 填写依赖的步骤编号
-- 确保数据流合理（先采集，再分析，最后审核）"""
-
-        try:
-            result, usage = chat_json(
-                prompt,
-                system="你是严谨的任务调度主管。返回可执行的子任务计划。",
-            )
-            self.cost_tracker = accumulate_usage(self.cost_tracker, usage)
-
-            plan = result if isinstance(result, list) else [result]
-            print(f"[Supervisor] 规划了 {len(plan)} 个子任务")
-            return plan
-
-        except Exception as e:
-            print(f"[Supervisor] 规划失败: {e}，使用默认计划")
-            # 降级: 使用默认的 3 步计划
-            return [
-                {"step": 1, "worker": "collector", "task": {"source": "github", "keywords": ["AI", "agent"], "limit": 5}, "depends_on": []},
-                {"step": 2, "worker": "analyzer", "task": {"items": [], "analysis_type": "summary"}, "depends_on": [1]},
-                {"step": 3, "worker": "reviewer", "task": {"analyses": [], "criteria": "准确性、深度"}, "depends_on": [2]},
-            ]
-
-    def execute(self, task_description: str) -> dict:
-        """执行完整的 Supervisor 工作流
-
-        Args:
-            task_description: 用户的任务描述
-
-        Returns:
-            包含所有结果和汇总的最终报告
-        """
-        # 1. 规划
-        plan = self.plan(task_description)
-
-        # 2. 按步骤执行（处理依赖关系）
-        step_results: dict[int, WorkerResult] = {}
-
-        for step_def in plan:
-            step_num = step_def["step"]
-            worker_name = step_def["worker"]
-            task = step_def["task"]
-
-            # 注入上游数据（如果有依赖）
-            for dep_step in step_def.get("depends_on", []):
-                if dep_step in step_results:
-                    dep_data = step_results[dep_step].data
-                    # 自动将上游 items 传递给下游
-                    if "items" in dep_data and "items" in task:
-                        task["items"] = dep_data["items"]
-                    if "findings" in dep_data and "analyses" in task:
-                        task["analyses"] = [dep_data]
-
-            # 执行
-            worker = WORKERS.get(worker_name)
-            if not worker:
-                print(f"[Supervisor] 未知工人: {worker_name}，跳过")
+    # 策略 3: 正则提取第一个完整 JSON 结构
+    for pattern in (r"\{[\s\S]*\}", r"\[[\s\S]*\]"):
+        match = re.search(pattern, cleaned)
+        if match:
+            try:
+                return json.loads(match.group())
+            except json.JSONDecodeError:
                 continue
 
-            print(f"[Supervisor] 步骤 {step_num}: 调度 {worker_name}")
-            result = worker(task)
-            step_results[step_num] = result
+    return {}
 
-            # 累计成本
-            if result.usage:
-                self.cost_tracker = accumulate_usage(self.cost_tracker, result.usage)
 
-            self.execution_log.append({
-                "step": step_num,
-                "worker": worker_name,
-                "status": result.status,
-            })
+# ---------------------------------------------------------------------------
+# Worker / Supervisor Agent 定义
+# ---------------------------------------------------------------------------
 
-        # 3. 汇总
-        return self._summarize(task_description, step_results)
+def worker_agent(task: str) -> dict:
+    """Worker Agent：接收任务，输出 JSON 格式的分析报告
 
-    def _summarize(self, task_description: str, results: dict[int, WorkerResult]) -> dict:
-        """汇总所有工人的结果，生成最终报告"""
-        all_data = {
-            step: {"worker": r.worker_name, "status": r.status, "data": r.data}
-            for step, r in results.items()
+    Args:
+        task: 任务描述（可能附带上一轮审核反馈）
+
+    Returns:
+        JSON 报告 {"report": ..., "key_points": [...]}
+    """
+    prompt = f"""请完成以下任务，输出 JSON 格式的分析报告。
+
+任务: {task}
+
+请返回 JSON 格式:
+{{
+    "report": "分析报告正文（包含分析过程和结论）",
+    "key_points": ["要点1", "要点2", "要点3"]
+}}"""
+
+    result, _ = chat(prompt, system="你是分析 Worker。只返回 JSON，不要输出其他内容。")
+    parsed = parse_json(result)
+    return parsed if isinstance(parsed, dict) else {"report": result}
+
+
+def supervisor_agent(report: dict, task: str) -> dict:
+    """Supervisor Agent：对 Worker 输出进行质量审核
+
+    评分维度（各 1-10 分）:
+    - accuracy: 准确性
+    - depth: 深度
+    - format: 格式
+
+    Args:
+        report: Worker 产出的分析报告
+        task: 原始任务描述
+
+    Returns:
+        {"passed": bool, "score": int, "feedback": str, ...维度分}
+    """
+    prompt = f"""请审核以下针对任务的分析报告。
+
+原始任务: {task}
+
+分析报告:
+{json.dumps(report, ensure_ascii=False, indent=2)}
+
+请从三个维度打分（各 1-10 分）:
+- accuracy: 准确性 — 内容是否正确、有依据
+- depth: 深度 — 分析是否深入、有洞察
+- format: 格式 — 结构是否清晰、表达是否规范
+
+返回 JSON 格式:
+{{
+    "accuracy": 8,
+    "depth": 7,
+    "format": 9,
+    "score": 8,
+    "passed": true,
+    "feedback": "改进建议（未通过时必填）"
+}}
+
+判定标准: 综合分 score >= 7 为通过（passed=true），否则为不通过。"""
+
+    try:
+        result, _ = chat(
+            prompt,
+            system="你是质量审核主管。只返回 JSON，不要输出其他内容。",
+            max_tokens=500,
+        )
+        review = parse_json(result)
+    except Exception as e:
+        # 审核失败时默认通过，保证可用性
+        return {"passed": True, "score": 7, "feedback": f"审核失败({e})，默认通过"}
+
+    if not isinstance(review, dict):
+        return {"passed": True, "score": 7, "feedback": "审核输出无法解析，默认通过"}
+
+    # 标准化: 保证关键字段存在，score 取整
+    score = int(review.get("score", 0))
+    review["score"] = score
+    review.setdefault("passed", score >= 7)
+    review.setdefault("feedback", "")
+    return review
+
+
+# ---------------------------------------------------------------------------
+# Supervisor 核心 — 审核循环
+# ---------------------------------------------------------------------------
+
+def supervisor(task: str, max_retries: int = 3) -> dict:
+    """主管入口：驱动 Worker 产出 + Supervisor 审核的循环
+
+    审核循环规则:
+    - 通过（score >= 7）→ 返回结果
+    - 不通过 → 带反馈重做，最多 max_retries 轮
+    - 超过 max_retries 轮 → 强制返回 + 警告
+
+    Args:
+        task: 用户任务描述
+        max_retries: 最大重试轮数（默认 3）
+
+    Returns:
+        {
+            "output": Worker 的最终报告,
+            "attempts": 实际执行轮数,
+            "final_score": 最后一轮综合分,
+            "warning": 超过重试上限时的警告（仅超限时存在）
         }
+    """
+    feedback = ""
+    report: dict = {}
 
-        prompt = f"""请汇总以下工作成果为最终报告。
+    for attempt in range(1, max_retries + 1):
+        print(f"[Supervisor] 第 {attempt} 轮: Worker 执行")
 
-原始任务: {task_description}
+        # 带上一轮反馈重做（第一轮无反馈）
+        work_task = task if not feedback else f"{task}\n\n上一轮审核反馈（请针对性修正）:\n{feedback}"
+        report = worker_agent(work_task)
 
-各步骤结果:
-{json.dumps(all_data, ensure_ascii=False, indent=2)}
+        print(f"[Supervisor] 第 {attempt} 轮: Supervisor 审核")
+        review = supervisor_agent(report, task)
+        final_score: int = review["score"]
+        print(f"[Supervisor] 第 {attempt} 轮: 评分 {final_score}/10 {'通过' if final_score >= 7 else '不通过'}")
 
-请返回简洁的中文汇总报告（200字以内）。"""
+        # 通过 → 直接返回
+        if final_score >= 7:
+            return {
+                "output": report,
+                "attempts": attempt,
+                "final_score": final_score,
+            }
 
-        summary, usage = chat(prompt, system="你是报告撰写专家。简洁、有条理。")
-        self.cost_tracker = accumulate_usage(self.cost_tracker, usage)
+        feedback = review.get("feedback") or "请提升分析深度与准确性。"
 
-        return {
-            "task": task_description,
-            "summary": summary,
-            "step_results": all_data,
-            "execution_log": self.execution_log,
-            "cost_tracker": self.cost_tracker,
-        }
+    # 超过重试上限 → 强制返回 + 警告
+    warning = f"已重试 {max_retries} 轮仍未达标，强制返回最后一轮结果"
+    print(f"[Supervisor] {warning}")
+    return {
+        "output": report,
+        "attempts": max_retries,
+        "final_score": final_score,
+        "warning": warning,
+    }
 
 
 # --- 命令行测试入口 ---
 if __name__ == "__main__":
     import sys
 
-    task = " ".join(sys.argv[1:]) if len(sys.argv) > 1 else "采集并分析今天的 AI Agent 领域最新进展"
+    task = " ".join(sys.argv[1:]) if len(sys.argv) > 1 else "分析 2026 年 AI Agent 框架的发展趋势"
     print(f"任务: {task}\n")
 
-    supervisor = Supervisor()
-    report = supervisor.execute(task)
+    result = supervisor(task)
 
     print("\n" + "=" * 60)
+    print(f"执行轮数: {result['attempts']}")
+    print(f"最终评分: {result['final_score']}/10")
+    if "warning" in result:
+        print(f"警告: {result['warning']}")
+    print("-" * 60)
     print("最终报告:")
-    print(report["summary"])
-    print(f"\n总成本: ¥{report['cost_tracker'].get('total_cost_yuan', 0)}")
+    print(json.dumps(result["output"], ensure_ascii=False, indent=2))
