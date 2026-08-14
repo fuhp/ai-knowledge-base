@@ -118,7 +118,7 @@ def classify_intent(query: str) -> str:
 
     两层分类策略:
     1. 关键词快速匹配 — 零成本，覆盖常见场景
-    2. LLM 分类 — 处理模糊意图，确保不漏判
+    2. LLM 分类 — 处理模糊意图，用 chat_json() 做结构化分类，确保不漏判
     """
     query_lower = query.lower()
 
@@ -127,7 +127,7 @@ def classify_intent(query: str) -> str:
         if any(kw in query_lower for kw in keywords):
             return intent
 
-    # 第二层: LLM 分类
+    # 第二层: LLM 分类（结构化 JSON 输出，避免文本解析歧义）
     prompt = f"""请判断以下用户查询的意图类别。
 
 查询: {query}
@@ -137,15 +137,24 @@ def classify_intent(query: str) -> str:
 - knowledge_query: 用户想查询已有的知识库内容
 - general_chat: 一般性的技术问题或闲聊
 
-请只返回类别名称（如 github_search），不要返回其他内容。"""
+请返回 JSON 格式，例如: {{"intent": "github_search"}}"""
 
-    result, _ = chat(prompt, system="你是意图分类器。只返回类别名称。", max_tokens=50)
-    intent = result.strip().lower()
+    try:
+        result, _ = chat_json(
+            prompt,
+            system="你是意图分类器。只返回 JSON，不要输出其他内容。",
+            max_tokens=50,
+        )
+        if isinstance(result, dict):
+            intent = str(result.get("intent", "")).strip().lower()
+        else:
+            intent = "general_chat"
+    except Exception:
+        # 分类失败时降级为通用对话，保证可用性
+        intent = "general_chat"
 
     # 确保返回有效的意图
-    if intent in HANDLERS:
-        return intent
-    return "general_chat"
+    return intent if intent in HANDLERS else "general_chat"
 
 
 def route(query: str) -> str:
