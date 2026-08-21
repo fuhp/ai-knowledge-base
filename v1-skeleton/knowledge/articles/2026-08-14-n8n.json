@@ -1,0 +1,57 @@
+{
+  "id": "kb-2026-08-14-004",
+  "title": "n8n",
+  "source": "github-trending",
+  "source_id": "n8n-io/n8n",
+  "url": "https://github.com/n8n-io/n8n",
+  "summary": "fair-code 许可的工作流自动化平台，可视画布与自定义代码混合编排，原生支持 AI Agent 构建与 1500+ 集成。内置 MCP client/server 能力，可自托管或云部署，从原型到生产无需重建技术栈。200k stars，是企业级 Agent 自动化的主流选择之一。",
+  "analysis": "对 AI 工程师的价值在于：用低代码方式快速把 LLM 接入真实业务流程（CRM、数据库、API），内置 MCP 支持让 agent 调用外部工具。适用场景：内部自动化、AI Agent 生产化部署、数据管道编排。相比 LangFlow/Dify 定位更偏通用集成平台，AI 是其中一等公民。",
+  "relevance_score": 0.88,
+  "score_breakdown": {
+    "tech_depth": 0.75,
+    "practical_value": 0.95,
+    "timeliness": 0.85,
+    "community_heat": 1.00,
+    "domain_match": 0.85
+  },
+  "tags": [
+    "workflow-automation",
+    "agent-framework",
+    "mcp",
+    "low-code",
+    "self-hosted"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+    "stars": 200613,
+    "forks": 60131,
+    "language": "TypeScript",
+    "license": "NOASSERTION",
+    "topics": [
+      "ai",
+      "apis",
+      "automation",
+      "cli",
+      "data-flow",
+      "development",
+      "integration-framework",
+      "integrations",
+      "ipaas",
+      "low-code",
+      "low-code-platform",
+      "mcp",
+      "mcp-client",
+      "mcp-server",
+      "n8n",
+      "no-code",
+      "self-hosted",
+      "typescript",
+      "workflow",
+      "workflow-automation"
+    ]
+  }
+}

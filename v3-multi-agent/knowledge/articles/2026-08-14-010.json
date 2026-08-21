@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-010",
+  "title": "omnigent-ai/omnigent",
+  "source": "github",
+  "url": "https://github.com/omnigent-ai/omnigent",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "开源 AI Agent 框架与\"元编排器\"：可统一编排 Claude Code、Codex、Cursor、Pi 及自定义 Agent，无需重写即可更换底层 harness，支持策略执行、沙箱隔离与多设备实时协作。代表\"Agent 之 Agent\"的元编排架构，解决工具碎片化问题。",
+  "tags": [
+    "agent-framework",
+    "meta-harness",
+    "multi-agent-orchestration",
+    "sandboxing"
+  ],
+  "relevance_score": 0.9,
+  "category": "agent",
+  "key_insight": "元编排（meta-harness）层成为多 Agent 时代的核心抽象，屏蔽底层工具差异。"
+}

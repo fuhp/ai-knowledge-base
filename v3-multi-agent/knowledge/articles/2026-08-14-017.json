@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-017",
+  "title": "KunAgent/Kun",
+  "source": "github",
+  "url": "https://github.com/KunAgent/Kun",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "本地优先的 AI Agent 工作台，覆盖编程、写作、设计、研究与自动化场景，桌面 GUI 与 TUI 共享同一运行时。强调数据本地化与隐私，为个人与团队提供统一的 Agent 操作入口。",
+  "tags": [
+    "local-first",
+    "agent-workspace",
+    "desktop-gui",
+    "tui"
+  ],
+  "relevance_score": 0.8,
+  "category": "agent",
+  "key_insight": "\"本地优先\"成为 Agent 工作台差异化的关键，统一运行时兼顾 GUI 与终端用户。"
+}

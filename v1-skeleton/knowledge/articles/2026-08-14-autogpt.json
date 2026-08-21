@@ -1,0 +1,47 @@
+{
+  "id": "kb-2026-08-14-006",
+  "title": "AutoGPT",
+  "source": "github-trending",
+  "source_id": "Significant-Gravitas/AutoGPT",
+  "url": "https://github.com/Significant-Gravitas/AutoGPT",
+  "summary": "最早将「自主智能体」概念带向大众的开源平台，愿景是人人可用的 AI。允许用户构建、部署自主 Agent 完成多步任务，支持 Claude、OpenAI、Llama API 等后端。186k stars，Python 实现。虽热度不及巅峰，仍是自主 agent 领域的标志性项目。",
+  "analysis": "历史意义大于当前创新：它是 2023 年 agent 浪潮的开端。当前版本提供低代码 Agent 构建器与市场，适合入门理解 autonomous agent 概念与快速搭建原型。对生产环境而言，新一代编排框架（如 Dify、n8n）在可控性与可靠性上更成熟。",
+  "relevance_score": 0.80,
+  "score_breakdown": {
+    "tech_depth": 0.70,
+    "practical_value": 0.75,
+    "timeliness": 0.75,
+    "community_heat": 1.00,
+    "domain_match": 0.95
+  },
+  "tags": [
+    "agent-framework",
+    "autonomous-agents",
+    "python",
+    "multi-agent"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+    "stars": 186617,
+    "forks": 46085,
+    "language": "Python",
+    "license": "NOASSERTION",
+    "topics": [
+      "agentic-ai",
+      "agents",
+      "ai",
+      "artificial-intelligence",
+      "autonomous-agents",
+      "claude",
+      "gpt",
+      "llama-api",
+      "llm",
+      "openai",
+      "python"
+    ]
+  }
+}

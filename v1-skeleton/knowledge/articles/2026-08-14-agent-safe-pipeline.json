@@ -1,0 +1,49 @@
+{
+  "id": "kb-2026-08-14-023",
+  "title": "agent-safe-pipeline",
+  "source": "github-trending",
+  "source_id": "decionis/agent-safe-pipeline",
+  "url": "https://github.com/decionis/agent-safe-pipeline",
+  "summary": "AI Agent 授权边界参考架构：「让 agent 提案，让策略裁决」。Agent 产出的意图被不可变捕获，独立 Decionis 服务给出 ALLOW/ESCALATE/BLOCK 裁决，高风险动作需人类在场验证，SafeExecutor 消费一次性、意图绑定的授权票据后才执行。含完整威胁模型与 MCP 网关示例。",
+  "analysis": "核心设计：权限与凭证完全外置于 agent（agent 不持下游凭证、不自审自批），fail-closed 默认策略加原子票据消费防重放。适用场景：企业级 agent 安全部署、金融/合规场景的 agent 授权、MCP 工具治理。是 agent governance 方向值得细读的参考架构。",
+  "relevance_score": 0.77,
+  "score_breakdown": {
+    "tech_depth": 0.80,
+    "practical_value": 0.70,
+    "timeliness": 1.00,
+    "community_heat": 0.45,
+    "domain_match": 0.90
+  },
+  "tags": [
+    "ai-governance",
+    "authorization",
+    "human-in-the-loop",
+    "policy-as-code",
+    "mcp"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "Reference architecture for AI agents that propose actions but cannot authorize them — immutable intent capture, an independent Decionis policy verdict (ALLOW/ESCALATE/BLOCK), verified human approval, and a SafeExecutor that consumes a single-use intent-bound grant.",
+    "stars": 270,
+    "forks": 3,
+    "language": "TypeScript",
+    "license": "Apache-2.0",
+    "topics": [
+      "agentic-ai",
+      "ai-agent-permissions",
+      "ai-agents",
+      "ai-governance",
+      "ai-safety",
+      "authorization",
+      "decionis",
+      "human-in-the-loop",
+      "mcp",
+      "policy-as-code",
+      "reference-architecture",
+      "typescript"
+    ]
+  }
+}

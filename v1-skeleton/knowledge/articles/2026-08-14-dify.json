@@ -1,0 +1,57 @@
+{
+  "id": "kb-2026-08-14-012",
+  "title": "dify",
+  "source": "github-trending",
+  "source_id": "langgenius/dify",
+  "url": "https://github.com/langgenius/dify",
+  "summary": "一站式 LLM 应用开发平台，覆盖 Agentic 工作流、RAG 管道、模型与工具编排，支持云部署、VPC 与自托管。内置知识库、MCP 支持、Skills 机制，152k stars。是中国团队主导的国际化开源项目，企业级 AI 应用平台的标杆之一。",
+  "analysis": "核心能力：Agent 工作流 + RAG 管道 + 多模型接入 + 团队协作空间，从原型到生产不用换栈。适用场景：企业知识库问答、内部 Agent 平台、快速交付 AI 应用。相比 n8n 更聚焦 LLM 原生，相比 LangFlow 更产品化。",
+  "relevance_score": 0.89,
+  "score_breakdown": {
+    "tech_depth": 0.75,
+    "practical_value": 0.95,
+    "timeliness": 0.85,
+    "community_heat": 1.00,
+    "domain_match": 0.95
+  },
+  "tags": [
+    "agent-framework",
+    "rag",
+    "workflow-automation",
+    "mcp",
+    "low-code"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
+    "stars": 152437,
+    "forks": 24064,
+    "language": "TypeScript",
+    "license": "NOASSERTION",
+    "topics": [
+      "agent",
+      "agentic-ai",
+      "agentic-framework",
+      "agentic-workflow",
+      "ai",
+      "automation",
+      "claude",
+      "genai",
+      "gpt",
+      "llm",
+      "low-code",
+      "mcp",
+      "nextjs",
+      "no-code",
+      "openai",
+      "orchestration",
+      "python",
+      "rag",
+      "skills",
+      "workflow"
+    ]
+  }
+}

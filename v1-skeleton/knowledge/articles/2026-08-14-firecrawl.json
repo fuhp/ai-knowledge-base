@@ -1,0 +1,56 @@
+{
+  "id": "kb-2026-08-14-009",
+  "title": "firecrawl",
+  "source": "github-trending",
+  "source_id": "firecrawl/firecrawl",
+  "url": "https://github.com/firecrawl/firecrawl",
+  "summary": "面向 LLM 的 Web 上下文 API，把任意网页转为干净 Markdown，支持大规模抓取、搜索与网页交互。内置反爬处理、HTML 转 Markdown、结构化数据提取，167k stars。是构建 RAG、深度研究 Agent、竞品监控等场景最常用的网页数据层。",
+  "analysis": "核心能力：抓取、提取、搜索、交互（点击/表单）一体化的 agent 友好 API，输出可直接进入 LLM 上下文。适用场景：RAG 数据管道、AI 搜索、agent 浏览器工具后端。AGPL-3.0 许可证对商业自托管有限制，需注意合规。",
+  "relevance_score": 0.86,
+  "score_breakdown": {
+    "tech_depth": 0.75,
+    "practical_value": 0.90,
+    "timeliness": 0.85,
+    "community_heat": 1.00,
+    "domain_match": 0.85
+  },
+  "tags": [
+    "web-scraping",
+    "rag",
+    "data-extraction",
+    "crawler",
+    "llm-tools"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "The context API to search, scrape, and interact with the web at scale.",
+    "stars": 167226,
+    "forks": 9386,
+    "language": "TypeScript",
+    "license": "AGPL-3.0",
+    "topics": [
+      "ai",
+      "ai-agents",
+      "ai-crawler",
+      "ai-scraping",
+      "ai-search",
+      "crawler",
+      "data-extraction",
+      "html-to-markdown",
+      "llm",
+      "markdown",
+      "scraper",
+      "scraping",
+      "web-crawler",
+      "web-data",
+      "web-data-extraction",
+      "web-scraper",
+      "web-scraping",
+      "web-search",
+      "webscraping"
+    ]
+  }
+}

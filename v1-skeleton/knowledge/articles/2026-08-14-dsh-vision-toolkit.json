@@ -1,0 +1,54 @@
+{
+  "id": "kb-2026-08-14-021",
+  "title": "dsh-vision-toolkit",
+  "source": "github-trending",
+  "source_id": "Anionex/dsh-vision-toolkit",
+  "url": "https://github.com/Anionex/dsh-vision-toolkit",
+  "summary": "DeepSeek Harness 视觉插件：为纯文本模型补上视觉能力——带意图的图片问答、长截图 OCR、UI 还原、grounding、像素 diff、Artifacts 生成。发布 1 天获 299 stars，是 text-only LLM 做视觉任务的工作流实践。",
+  "analysis": "思路务实：不换多模态模型，而是用工具链（截图 + OCR + 结构化描述）让文本模型「看见」。适用场景：DeepSeek Harness 用户的 UI 还原、截图理解、视觉问答。技术上是 agent 工具编排的典型范例，可迁移到其他纯文本模型工具链。",
+  "relevance_score": 0.73,
+  "score_breakdown": {
+    "tech_depth": 0.65,
+    "practical_value": 0.70,
+    "timeliness": 1.00,
+    "community_heat": 0.50,
+    "domain_match": 0.85
+  },
+  "tags": [
+    "computer-vision",
+    "ocr",
+    "deepseek",
+    "agent-toolkit",
+    "plugin"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "让纯文本模型更好地做视觉任务的DeepSeek Harness插件：带意图的图片问答、长截图 OCR、UI 还原等｜DeepSeek Harness-native integration for agent-vision-toolkit: image Q&A, long-screenshot OCR, UI restoration, grounding, pixel diff, Artifacts, and Web UI.",
+    "stars": 299,
+    "forks": 19,
+    "language": "TypeScript",
+    "license": "MIT",
+    "topics": [
+      "agent-skills",
+      "agent-vision-toolkit",
+      "computer-vision",
+      "deepseek",
+      "deepseek-harness",
+      "dsh",
+      "dsh-plugin",
+      "gui-automation",
+      "ocr",
+      "plugin",
+      "python",
+      "screenshot-testing",
+      "text-only-llm",
+      "typescript",
+      "ui-restoration",
+      "vision-language-model",
+      "vision-tools"
+    ]
+  }
+}

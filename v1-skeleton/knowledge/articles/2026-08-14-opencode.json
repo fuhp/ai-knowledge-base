@@ -1,0 +1,41 @@
+{
+  "id": "kb-2026-08-14-005",
+  "title": "opencode",
+  "source": "github-trending",
+  "source_id": "anomalyco/opencode",
+  "url": "https://github.com/anomalyco/opencode",
+  "summary": "终端优先的开源 AI 编码智能体，支持任意模型提供商（Anthropic、OpenAI、本地模型等），提供 CLI 与本地 Web UI。TypeScript 实现，197k stars。强调可编程性与透明性，agent 配置、权限、模型切换全部可版本控制，是 Claude Code 之外最流行的开源替代。",
+  "analysis": "核心特点：provider-agnostic、完全开源、可本地运行的 coding agent，支持 MCP 与插件生态。适用场景：希望掌控编码 agent 完整技术栈的团队、多模型切换评测、受限网络环境下的本地部署。对 Agent 研究者而言是研究编码 agent 架构的优质参考实现。",
+  "relevance_score": 0.90,
+  "score_breakdown": {
+    "tech_depth": 0.80,
+    "practical_value": 0.95,
+    "timeliness": 0.85,
+    "community_heat": 1.00,
+    "domain_match": 0.95
+  },
+  "tags": [
+    "coding-agent",
+    "code-assistant",
+    "cli",
+    "typescript",
+    "agent-framework"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "The open source coding agent.",
+    "stars": 197369,
+    "forks": 25386,
+    "language": "TypeScript",
+    "license": "MIT",
+    "topics": [
+      "ai",
+      "coding-agent",
+      "cli",
+      "opencode"
+    ]
+  }
+}

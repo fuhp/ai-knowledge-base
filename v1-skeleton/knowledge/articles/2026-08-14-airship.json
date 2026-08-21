@@ -1,0 +1,42 @@
+{
+  "id": "kb-2026-08-14-017",
+  "title": "airship",
+  "source": "github-trending",
+  "source_id": "0xnyn/airship",
+  "url": "https://github.com/0xnyn/airship",
+  "summary": "面向编码 Agent 的类 Figma 可视化编辑器：在 dev server 前架设反向代理，点击页面元素即可定位到源码文件与行号，用自然语言驱动 Claude Code、Codex 或 OpenCode 改代码，桌面与移动端帧并排实时预览。零插件、零配置、不污染项目依赖。",
+  "analysis": "核心创新：利用 dev 构建记录的 source 位置信息做「元素 → 文件行号」映射，把视觉编辑与 agent 编码闭环；reverse-proxy 架构避免侵入构建链。适用场景：前端 UI 微调、设计到代码交付、非工程人员界面修改。其安全设计（--safe 沙箱分级、agent 能力差异透明化）值得参考。",
+  "relevance_score": 0.74,
+  "score_breakdown": {
+    "tech_depth": 0.70,
+    "practical_value": 0.75,
+    "timeliness": 0.95,
+    "community_heat": 0.45,
+    "domain_match": 0.85
+  },
+  "tags": [
+    "visual-editor",
+    "coding-agent",
+    "claude-code",
+    "codex",
+    "opencode"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "Figma like visual editor built for Claude Code, Codex and OpenCode",
+    "stars": 431,
+    "forks": 39,
+    "language": "TypeScript",
+    "license": "MIT",
+    "topics": [
+      "ai",
+      "visual-editor",
+      "claude-code",
+      "codex",
+      "opencode"
+    ]
+  }
+}

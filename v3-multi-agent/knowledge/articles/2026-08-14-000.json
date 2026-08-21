@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-000",
+  "title": "DietrichGebert/ponytail",
+  "source": "github",
+  "url": "https://github.com/DietrichGebert/ponytail",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "让 AI 编程代理像\"最懒的资深工程师\"一样思考——最好的代码是从未写过的代码。项目通过极简主义理念引导 Agent 优先删减代码、减少冗余实现，从而降低维护成本与技术债。超 10 万 star 表明这一反直觉的 Agent 行为设计引发社区强烈共鸣。",
+  "tags": [
+    "ai-agent",
+    "code-minimalism",
+    "coding-agent",
+    "developer-experience"
+  ],
+  "relevance_score": 0.7,
+  "category": "agent",
+  "key_insight": "将\"最少代码\"哲学编码进 Agent 行为，成为爆款级开源理念产品。"
+}

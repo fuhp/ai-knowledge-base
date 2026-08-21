@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-016",
+  "title": "op7418/guizang-social-card-skill",
+  "source": "github",
+  "url": "https://github.com/op7418/guizang-social-card-skill",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "Claude Code / Codex 技能：生成小红书图文轮播与微信公众号 21:9+1:1 封面组合。内置编辑部风格与瑞士视觉体系、28 种布局、10 套主题，单文件 HTML 直出 PNG，将专业排版知识封装为 Agent 可复用的技能。",
+  "tags": [
+    "agent-skill",
+    "social-media",
+    "html-to-png",
+    "design-system"
+  ],
+  "relevance_score": 0.6,
+  "category": "skill",
+  "key_insight": "专业设计方法论被封装为 Agent Skill，内容营销自动化进入排版级精度。"
+}

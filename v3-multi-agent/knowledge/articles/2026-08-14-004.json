@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-004",
+  "title": "yc-software/qm",
+  "source": "github",
+  "url": "https://github.com/yc-software/qm",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "面向团队协作的多人（多 Agent）Agent 运行框架，将多个 AI Agent 与人类成员纳入同一工作环境，支持任务分配、协同与进度共享。定位\"工作场景的多玩家 Agent 平台\"，探索人机混合团队的协作范式。",
+  "tags": [
+    "multi-agent",
+    "agent-harness",
+    "team-collaboration",
+    "human-agent-collaboration"
+  ],
+  "relevance_score": 0.8,
+  "category": "agent",
+  "key_insight": "从单 Agent 工具走向\"多玩家\"人机混合团队协作是 Agent 应用的重要方向。"
+}

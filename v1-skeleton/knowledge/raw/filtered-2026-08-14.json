@@ -1,0 +1,39 @@
+{
+  "date": "2026-08-14",
+  "generated_at": "2026-08-14T14:40:00Z",
+  "source_file": "github-trending-2026-08-14.json",
+  "total_input": 31,
+  "filtered_count": 4,
+  "published_count": 27,
+  "deduplicated": [],
+  "filtered": [
+    {
+      "id": "swping999/scene-card-studio",
+      "title": "scene-card-studio",
+      "url": "https://github.com/swping999/scene-card-studio",
+      "relevance_score": 0.61,
+      "reason": "relevance_score 0.61 低于 0.65 阈值；analyzer 明确标注「低相关度提示」，属图像生成 + 模板化处理的垂直应用，与 AI/LLM/Agent 核心领域关联弱，技术深度有限，建议低优先级处理"
+    },
+    {
+      "id": "Innate-Labs/Noobi.ai",
+      "title": "Noobi.ai",
+      "url": "https://github.com/Innate-Labs/Noobi.ai",
+      "relevance_score": 0.63,
+      "reason": "relevance_score 0.63 低于 0.65 阈值；项目处于早期、社区较小，analyzer 判定「与核心 LLM 技术关联中等，可关注但优先级不高」"
+    },
+    {
+      "id": "N-allpass/modex-mh-agent",
+      "title": "modex-mh-agent",
+      "url": "https://github.com/N-allpass/modex-mh-agent",
+      "relevance_score": 0.64,
+      "reason": "relevance_score 0.64 低于 0.65 阈值；仓库仅为架构展示、不含任何源码（无 license、无语言标注），practical_value 仅 0.50，无法溯源验证，不满足知识库「可追溯、可验证」要求"
+    },
+    {
+      "id": "50kg/image-to-slice",
+      "title": "image-to-slice",
+      "url": "https://github.com/50kg/image-to-slice",
+      "relevance_score": 0.65,
+      "reason": "relevance_score 0.65 处于阈值线，domain_match 0.65 为全批次最低；属 AI 辅助设计工具（拆图/图层还原），与知识库聚焦的 LLM/Agent 技术主线偏离较大，按「宁缺毋滥」原则丢弃"
+    }
+  ]
+}

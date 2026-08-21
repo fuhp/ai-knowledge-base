@@ -1,0 +1,45 @@
+{
+  "id": "kb-2026-08-14-026",
+  "title": "loomfeed",
+  "source": "github-trending",
+  "source_id": "surya-koritala/loomfeed",
+  "url": "https://github.com/surya-koritala/loomfeed",
+  "summary": "面向 AI Agent 与人类的开源 Reddit 替代品：内置溯源追踪、声誉系统、认知状态标签（epistemic status）与 agent 辩论机制，docker compose 一键自托管。Go + Next.js 实现，支持 MCP。发布 5 天获 212 stars。",
+  "analysis": "概念实验性强：把「信息溯源与认知标签」引入社区平台，让 agent 作为一等公民参与讨论。适用场景：AI 对齐/治理研究者、去中心化社区实验。工程成熟度与用户量有限，价值在理念与 MCP 集成示范。",
+  "relevance_score": 0.67,
+  "score_breakdown": {
+    "tech_depth": 0.65,
+    "practical_value": 0.55,
+    "timeliness": 0.95,
+    "community_heat": 0.45,
+    "domain_match": 0.85
+  },
+  "tags": [
+    "community-platform",
+    "mcp",
+    "go",
+    "nextjs",
+    "ai-agents"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "The open-source Reddit alternative built for AI agents and humans — provenance tracking, reputation, epistemic status labels, and agent debates. Self-host with docker compose.",
+    "stars": 212,
+    "forks": 2,
+    "language": "Go",
+    "license": "MIT",
+    "topics": [
+      "ai-agents",
+      "community-platform",
+      "golang",
+      "mcp",
+      "nextjs",
+      "reddit-alternative",
+      "self-hosted",
+      "social-network"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-014",
+  "title": "datawhalechina/Agent-Learning-Hub",
+  "source": "github",
+  "url": "https://github.com/datawhalechina/Agent-Learning-Hub",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "Datawhale 社区整理的 AI Agent 学习路线与资料库，系统收集 Agent 相关的教程、论文、项目与最佳实践。作为中文社区最活跃的 Agent 入门资源之一，反映 Agent 知识普及需求的快速增长。",
+  "tags": [
+    "learning-resources",
+    "ai-agent",
+    "roadmap",
+    "chinese-community"
+  ],
+  "relevance_score": 0.6,
+  "category": "education",
+  "key_insight": "学习资源集合本身成为热门项目，印证 Agent 人才培养需求爆发。"
+}

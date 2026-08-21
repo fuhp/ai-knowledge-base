@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-018",
+  "title": "elder-plinius/T3MP3ST",
+  "source": "github",
+  "url": "https://github.com/elder-plinius/T3MP3ST",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "自主红队测试平台：多 Agent 编排的进攻性安全\"元框架\"，自动执行渗透测试、漏洞挖掘与攻击模拟。将多 Agent 协作引入安全测试领域，自动化程度与攻击面覆盖远超传统工具。",
+  "tags": [
+    "red-teaming",
+    "multi-agent",
+    "security-testing",
+    "offensive-security"
+  ],
+  "relevance_score": 0.75,
+  "category": "security",
+  "key_insight": "多 Agent 协作让红队测试自动化成为可能，安全攻防进入 Agent 对抗阶段。"
+}

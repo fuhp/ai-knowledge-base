@@ -1,0 +1,42 @@
+{
+  "id": "kb-2026-08-14-024",
+  "title": "Hermes-Bot-Mode",
+  "source": "github-trending",
+  "source_id": "NousResearch/Hermes-Bot-Mode",
+  "url": "https://github.com/NousResearch/Hermes-Bot-Mode",
+  "summary": "Hermes 桌面的 Bot Mode 插件：具名智能体花名册，每个 bot 有独立聊天、头像、日程与 bot-to-bot 消息，无需改动核心代码即可扩展桌面端多 agent 协作体验。发布 1 天获 269 stars。",
+  "analysis": "亮点是「无核心补丁」的插件化多 agent 体验：花名册 + 独立上下文 + bot 间通信是轻量多 agent 协作的有趣形态。适用场景：Hermes 用户并行管理多个角色 agent、bot 自动化协作实验。技术深度有限，但产品形态值得关注。",
+  "relevance_score": 0.67,
+  "score_breakdown": {
+    "tech_depth": 0.55,
+    "practical_value": 0.60,
+    "timeliness": 1.00,
+    "community_heat": 0.45,
+    "domain_match": 0.85
+  },
+  "tags": [
+    "multi-agent",
+    "desktop",
+    "plugin",
+    "bot-to-bot",
+    "agent-framework"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "Bot Mode for the Hermes desktop: a roster of named agents with their own chats, avatars, routines, and bot-to-bot messaging. Desktop plugin, no core patches.",
+    "stars": 269,
+    "forks": 37,
+    "language": "JavaScript",
+    "license": "MIT",
+    "topics": [
+      "ai",
+      "agent",
+      "hermes",
+      "desktop",
+      "nous-research"
+    ]
+  }
+}

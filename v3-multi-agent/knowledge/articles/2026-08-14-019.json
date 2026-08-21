@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-019",
+  "title": "vercel-labs/zerolang",
+  "source": "github",
+  "url": "https://github.com/vercel-labs/zerolang",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "Vercel Labs 推出的\"为 Agent 设计的编程语言\"。以 C 实现核心，为 AI Agent 提供结构化、可验证的代码生成目标语言，降低 LLM 生成代码的错误率与歧义性，探索\"语言即接口\"的 Agent 编程范式。",
+  "tags": [
+    "agent-programming-language",
+    "dsl",
+    "code-generation",
+    "vercel"
+  ],
+  "relevance_score": 0.8,
+  "category": "language",
+  "key_insight": "为 Agent 定制编程语言，从\"适应现有语言\"转向\"设计 Agent 友好的语言\"。"
+}

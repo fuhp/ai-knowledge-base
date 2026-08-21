@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-005",
+  "title": "XiaomiMiMo/MiMo-Code",
+  "source": "github",
+  "url": "https://github.com/XiaomiMiMo/MiMo-Code",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "小米推出的编码 Agent 项目，主张\"模型与 Agent 共同进化\"——Agent 使用与反馈数据反哺模型优化，模型能力提升又增强 Agent 表现，形成闭环迭代。代表国产厂商在编码智能体赛道自研模型与 Agent 协同演进的路线。",
+  "tags": [
+    "coding-agent",
+    "model-agent-coevolution",
+    "xiaomi",
+    "closed-loop"
+  ],
+  "relevance_score": 0.8,
+  "category": "agent",
+  "key_insight": "\"模型与 Agent 共同进化\"的闭环理念，探索数据飞轮驱动的编码 Agent 迭代路径。"
+}

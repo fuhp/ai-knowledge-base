@@ -118,5 +118,227 @@
     "title": "browser-use/browser-use",
     "category": "tool",
     "relevance_score": 0.85
+  },
+  {
+    "id": "2026-08-14-000",
+    "title": "DietrichGebert/ponytail",
+    "category": "agent",
+    "relevance_score": 0.7
+  },
+  {
+    "id": "2026-08-14-001",
+    "title": "xai-org/grok-build",
+    "category": "agent",
+    "relevance_score": 0.9
+  },
+  {
+    "id": "2026-08-14-002",
+    "title": "alibaba/open-code-review",
+    "category": "agent",
+    "relevance_score": 0.85
+  },
+  {
+    "id": "2026-08-14-003",
+    "title": "langchain-ai/openwiki",
+    "category": "tooling",
+    "relevance_score": 0.7
+  },
+  {
+    "id": "2026-08-14-004",
+    "title": "yc-software/qm",
+    "category": "agent",
+    "relevance_score": 0.8
+  },
+  {
+    "id": "2026-08-14-005",
+    "title": "XiaomiMiMo/MiMo-Code",
+    "category": "agent",
+    "relevance_score": 0.8
+  },
+  {
+    "id": "2026-08-14-006",
+    "title": "cobusgreyling/loop-engineering",
+    "category": "orchestration",
+    "relevance_score": 0.8
+  },
+  {
+    "id": "2026-08-14-007",
+    "title": "lidge-jun/opencodex",
+    "category": "tooling",
+    "relevance_score": 0.75
+  },
+  {
+    "id": "2026-08-14-008",
+    "title": "StarTrail-org/PixelRAG",
+    "category": "rag",
+    "relevance_score": 0.85
+  },
+  {
+    "id": "2026-08-14-009",
+    "title": "helloianneo/ian-xiaohei-illustrations",
+    "category": "skill",
+    "relevance_score": 0.6
+  },
+  {
+    "id": "2026-08-14-010",
+    "title": "omnigent-ai/omnigent",
+    "category": "agent",
+    "relevance_score": 0.9
+  },
+  {
+    "id": "2026-08-14-011",
+    "title": "unicity-aos/aos-ce",
+    "category": "infrastructure",
+    "relevance_score": 0.75
+  },
+  {
+    "id": "2026-08-14-012",
+    "title": "trycompai/crm",
+    "category": "application",
+    "relevance_score": 0.65
+  },
+  {
+    "id": "2026-08-14-013",
+    "title": "cloudflare/computer",
+    "category": "infrastructure",
+    "relevance_score": 0.8
+  },
+  {
+    "id": "2026-08-14-014",
+    "title": "datawhalechina/Agent-Learning-Hub",
+    "category": "education",
+    "relevance_score": 0.6
+  },
+  {
+    "id": "2026-08-14-015",
+    "title": "MoonshotAI/kimi-code",
+    "category": "agent",
+    "relevance_score": 0.8
+  },
+  {
+    "id": "2026-08-14-016",
+    "title": "op7418/guizang-social-card-skill",
+    "category": "skill",
+    "relevance_score": 0.6
+  },
+  {
+    "id": "2026-08-14-017",
+    "title": "KunAgent/Kun",
+    "category": "agent",
+    "relevance_score": 0.8
+  },
+  {
+    "id": "2026-08-14-018",
+    "title": "elder-plinius/T3MP3ST",
+    "category": "security",
+    "relevance_score": 0.75
+  },
+  {
+    "id": "2026-08-14-019",
+    "title": "vercel-labs/zerolang",
+    "category": "language",
+    "relevance_score": 0.8
+  },
+  {
+    "id": "2026-08-14-020",
+    "title": "basketikun/infinite-canvas",
+    "category": "application",
+    "relevance_score": 0.7
+  },
+  {
+    "id": "2026-08-14-021",
+    "title": "oomol-lab/open-connector",
+    "category": "tooling",
+    "relevance_score": 0.75
+  },
+  {
+    "id": "2026-08-14-022",
+    "title": "huangruiteng/loopx",
+    "category": "orchestration",
+    "relevance_score": 0.8
+  },
+  {
+    "id": "2026-08-14-023",
+    "title": "vercel/eve",
+    "category": "agent",
+    "relevance_score": 0.8
+  },
+  {
+    "id": "2026-08-14-024",
+    "title": "nexu-io/html-video",
+    "category": "tooling",
+    "relevance_score": 0.6
+  },
+  {
+    "id": "2026-08-14-025",
+    "title": "BuilderIO/skills",
+    "category": "skill",
+    "relevance_score": 0.65
+  },
+  {
+    "id": "2026-08-14-026",
+    "title": "OpenBMB/PilotDeck",
+    "category": "agent",
+    "relevance_score": 0.7
+  },
+  {
+    "id": "2026-08-17-000",
+    "title": "NousResearch/hermes-agent",
+    "category": "agent",
+    "relevance_score": 0.75
+  },
+  {
+    "id": "2026-08-17-001",
+    "title": "langgenius/dify",
+    "category": "framework",
+    "relevance_score": 0.95
+  },
+  {
+    "id": "2026-08-17-002",
+    "title": "langchain-ai/langchain",
+    "category": "framework",
+    "relevance_score": 0.95
+  },
+  {
+    "id": "2026-08-17-003",
+    "title": "Shubhamsaboo/awesome-llm-apps",
+    "category": "framework",
+    "relevance_score": 0.9
+  },
+  {
+    "id": "2026-08-17-004",
+    "title": "browser-use/browser-use",
+    "category": "framework",
+    "relevance_score": 0.9
+  },
+  {
+    "id": "2026-08-17-005",
+    "title": "earendil-works/pi",
+    "category": "framework",
+    "relevance_score": 0.9
+  },
+  {
+    "id": "2026-08-17-006",
+    "title": "infiniflow/ragflow",
+    "category": "rag",
+    "relevance_score": 0.95
+  },
+  {
+    "id": "2026-08-17-007",
+    "title": "OpenHands/OpenHands",
+    "category": "tool",
+    "relevance_score": 0.95
+  },
+  {
+    "id": "2026-08-17-008",
+    "title": "bytedance/deer-flow",
+    "category": "framework",
+    "relevance_score": 0.9
+  },
+  {
+    "id": "2026-08-17-009",
+    "title": "hiyouga/LlamaFactory",
+    "category": "framework",
+    "relevance_score": 0.95
   }
 ]

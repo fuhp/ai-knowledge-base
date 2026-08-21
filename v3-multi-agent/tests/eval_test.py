@@ -39,6 +39,42 @@ from tests.security import (
 
 
 # ===========================================================================
+# EVAL_CASES — 评估用例（正面 / 负面 / 边界）
+# ===========================================================================
+# 每个用例: name, input, expected（含范围条件或检查标志）
+# 测试函数用范围断言（>=, <=, in），不做精确匹配。
+EVAL_CASES = [
+    {
+        "name": "positive_tech_article",
+        "input": (
+            "LangChain 是一个用于开发 LLM 驱动应用的框架，"
+            "支持链式调用、Agent、记忆与工具集成，是构建 AI 应用的核心组件。"
+        ),
+        "expected": {
+            "min_relevance": 0.6,      # 相关度应 >= 0.6
+            "require_summary": True,   # 必须有摘要
+            "require_tags": True,      # 必须有标签
+            "min_tags": 1,             # 至少 1 个标签
+        },
+    },
+    {
+        "name": "negative_irrelevant_content",
+        "input": "今天天气不错，适合出去散步，公园里的花开得很好。",
+        "expected": {
+            "max_relevance": 0.4,       # 无关内容应被判定为低相关（<= 0.4）
+        },
+    },
+    {
+        "name": "boundary_minimal_input",
+        "input": "AI",
+        "expected": {
+            "no_crash": True,          # 极短输入不应崩溃
+        },
+    },
+]
+
+
+# ===========================================================================
 # 1. 文章质量测试 — LLM-as-Judge
 # ===========================================================================
 
@@ -294,3 +330,160 @@ class TestEndToEnd:
         assert result is not None, "工作流应返回结果"
         assert result.get("review_passed") is True, "最终审核应通过"
         assert result.get("iteration", 0) <= 3, "迭代次数不应超过 3"
+
+
+# ===========================================================================
+# 6. EVAL_CASES 评估测试 — 结构验证 + LLM-as-Judge + 用例分析
+# ===========================================================================
+
+class TestEvalCases:
+    """评估用例测试：结构验证（本地）+ LLM-as-Judge + 用例分析（LLM）"""
+
+    def test_eval_cases_structure(self) -> None:
+        """本地验证 EVAL_CASES 结构（不调 LLM）
+
+        确保每个用例含 name/input/expected，且 expected 非空、有可检查条件。
+        """
+        assert len(EVAL_CASES) >= 3, "EVAL_CASES 至少 3 个场景"
+
+        required_keys = {"name", "input", "expected"}
+        for case in EVAL_CASES:
+            assert required_keys.issubset(case.keys()), f"用例缺少必要字段: {case}"
+            assert isinstance(case["name"], str) and case["name"], "name 必须非空字符串"
+            assert isinstance(case["input"], str) and case["input"], "input 必须非空字符串"
+            assert isinstance(case["expected"], dict), "expected 必须是 dict"
+            assert len(case["expected"]) >= 1, f"expected 至少 1 个检查条件: {case['name']}"
+
+        # 至少覆盖正面 / 负面 / 边界三类
+        names = {c["name"] for c in EVAL_CASES}
+        assert any("positive" in n for n in names), "缺少正面案例"
+        assert any("negative" in n for n in names), "缺少负面案例"
+        assert any("boundary" in n for n in names), "缺少边界案例"
+
+    @pytest.mark.skipif(
+        not os.getenv("LLM_API_KEY"),
+        reason="需要 LLM_API_KEY 环境变量",
+    )
+    @pytest.mark.slow
+    def test_llm_as_judge_score(self) -> None:
+        """LLM-as-Judge：让 LLM 对分析结果打分（1-10），断言分数 >= 5
+
+        依赖 workflows.model_client.chat()，返回 (text, usage)。
+        """
+        import re
+
+        from workflows.model_client import chat
+
+        analysis_result = {
+            "title": "anthropic/claude-code",
+            "summary": "Claude Code 是 Anthropic 的 CLI 编程助手，支持 Sub-Agent 与 Hooks。",
+            "tags": ["cli", "agent", "anthropic"],
+            "category": "tool",
+        }
+
+        prompt = f"""请对以下知识库分析结果的质量打分（1-10 分，整数）:
+
+{json.dumps(analysis_result, ensure_ascii=False, indent=2)}
+
+评分维度: 摘要准确性、标签相关性、分类合理性。
+只回复一个 1 到 10 的整数分数，不要其他内容。"""
+
+        text, _ = chat(
+            prompt,
+            system="你是严格但公正的知识库质量评估员。",
+            max_tokens=20,
+        )
+
+        match = re.search(r"\b([1-9]|10)\b", text)
+        assert match, f"无法从回复解析 1-10 分数: {text!r}"
+        score = int(match.group(1))
+
+        assert 1 <= score <= 10, f"分数超出 1-10 范围: {score}"
+        assert score >= 5, f"LLM-as-Judge 评分过低: {score}/10"
+
+    @pytest.mark.skipif(
+        not os.getenv("LLM_API_KEY"),
+        reason="需要 LLM_API_KEY 环境变量",
+    )
+    @pytest.mark.slow
+    @pytest.mark.parametrize("case", EVAL_CASES, ids=[c["name"] for c in EVAL_CASES])
+    def test_case_analysis(self, case: dict) -> None:
+        """对每个 EVAL_CASE 跑一次 LLM 分析，用范围断言验证 expected 条件
+
+        使用 chat() 调用，手动解析 JSON。范围断言（>=, <=, in），不精确匹配。
+        """
+        from workflows.model_client import chat
+
+        prompt = f"""分析以下内容，返回 JSON:
+{{
+  "summary": "中文摘要",
+  "tags": ["标签"],
+  "relevance_score": 0.0,
+  "category": "分类"
+}}
+
+内容: {case['input']}
+
+只返回 JSON，不要其他内容。"""
+
+        text, _ = chat(prompt, system="你是 AI 技术分析师。", max_tokens=500)
+
+        # 手动解析 JSON（chat() 返回纯文本）
+        parsed = _extract_json(text)
+        assert parsed is not None, f"[{case['name']}] 无法解析 JSON: {text!r}"
+
+        expected = case["expected"]
+
+        # 边界案例：不崩溃即可（解析成功就达标）
+        if expected.get("no_crash"):
+            assert parsed is not None
+            return
+
+        # 范围断言：相关度
+        relevance = float(parsed.get("relevance_score", 0.0))
+        if "min_relevance" in expected:
+            assert relevance >= expected["min_relevance"], (
+                f"[{case['name']}] relevance {relevance} < {expected['min_relevance']}"
+            )
+        if "max_relevance" in expected:
+            assert relevance <= expected["max_relevance"], (
+                f"[{case['name']}] relevance {relevance} > {expected['max_relevance']}"
+            )
+
+        # 范围断言：摘要
+        if expected.get("require_summary"):
+            summary = parsed.get("summary", "")
+            assert isinstance(summary, str) and len(summary) > 0, (
+                f"[{case['name']}] 缺少摘要"
+            )
+
+        # 范围断言：标签（in / 长度 >=）
+        if expected.get("require_tags"):
+            tags = parsed.get("tags", [])
+            assert isinstance(tags, list), f"[{case['name']}] tags 不是列表"
+            assert len(tags) >= expected.get("min_tags", 1), (
+                f"[{case['name']}] 标签数 {len(tags)} < {expected.get('min_tags', 1)}"
+            )
+
+
+def _extract_json(text: str) -> dict | None:
+    """从 LLM 文本中提取首个 JSON 对象（容错）"""
+    import re
+
+    cleaned = text.strip()
+    if cleaned.startswith("```"):
+        lines = cleaned.split("\n")
+        cleaned = "\n".join(lines[1:-1] if lines[-1].strip() == "```" else lines[1:])
+
+    try:
+        return json.loads(cleaned)
+    except json.JSONDecodeError:
+        pass
+
+    match = re.search(r"\{[\s\S]*\}", cleaned)
+    if match:
+        try:
+            return json.loads(match.group())
+        except json.JSONDecodeError:
+            return None
+    return None

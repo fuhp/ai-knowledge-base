@@ -1,0 +1,54 @@
+{
+  "id": "kb-2026-08-14-019",
+  "title": "KADATH",
+  "source": "github-trending",
+  "source_id": "i3T4AN/KADATH",
+  "url": "https://github.com/i3T4AN/KADATH",
+  "summary": "进化式多 Agent 运行时：以「目标 + 可测基准」为适应度函数，让 agent 种群经历多代繁殖、评分、变异与淘汰，收敛出最优 agent。基因是完整可编辑的 agent 框架（系统提示 + Python 实现 + 工具 + 依赖），控制平面（kernel）不参与进化以防作弊。十轮演示中最佳适应度从 18 升至 91。",
+  "analysis": "概念创新突出：用遗传算法进化 agent 而非调 prompt；kernel/organism 双层隔离、Docker 沙箱、证据冻结、独立评分防欺诈，工程完成度高。局限：token 消耗巨大，偏实验性质，生产实用价值待验证。适用场景：agent 自动优化研究、基准驱动的 agent 搜索、进化算法教学。",
+  "relevance_score": 0.76,
+  "score_breakdown": {
+    "tech_depth": 0.90,
+    "practical_value": 0.60,
+    "timeliness": 0.95,
+    "community_heat": 0.45,
+    "domain_match": 0.95
+  },
+  "tags": [
+    "multi-agent",
+    "evolutionary-algorithms",
+    "agent-evaluation",
+    "self-evolving-agents",
+    "genetic-algorithm"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "Evolutionary multi-agent runtime that breeds, evaluates, and improves autonomous agents across reproducible epochs to converge on optimization of a goal.",
+    "stars": 351,
+    "forks": 3,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "topics": [
+      "agent-evaluation-tools",
+      "agent-framework",
+      "agent-swarms",
+      "agentic-ai",
+      "agents",
+      "ai",
+      "ai-agents",
+      "autonomous-agents",
+      "evolutionary-algorithms",
+      "generative-ai",
+      "genetic-algorithm",
+      "llm",
+      "llm-agents",
+      "llm-evaluation",
+      "multi-agent",
+      "multi-agent-systems",
+      "self-evolving-agents"
+    ]
+  }
+}

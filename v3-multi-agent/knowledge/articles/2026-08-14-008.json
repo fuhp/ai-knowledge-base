@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-008",
+  "title": "StarTrail-org/PixelRAG",
+  "source": "github",
+  "url": "https://github.com/StarTrail-org/PixelRAG",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "宣称\"终结网页解析\"的像素级原生搜索 RAG 方案：不依赖 HTML 解析与结构化提取，直接基于页面渲染像素进行可扩展的检索。面向视觉布局敏感的复杂网页场景，为多模态检索与 Agent 浏览提供新路径，配套 pixelrag.ai 服务。",
+  "tags": [
+    "rag",
+    "pixel-native-search",
+    "multimodal-retrieval",
+    "visual-understanding"
+  ],
+  "relevance_score": 0.85,
+  "category": "rag",
+  "key_insight": "跳过解析、直接在像素空间检索，是对 Web RAG 管线的一次范式级重构尝试。"
+}

@@ -43,20 +43,27 @@ from workflows.nodes import (
 )
 from workflows.reviser import revise_node
 from workflows.human_flag import human_flag_node
+from workflows.planner import planner_node
 from workflows.state import KBState
 
 
 def route_after_review(state: KBState) -> str:
     """3 路条件路由：review_node 之后的三个分支
 
+    读 state["plan"]["max_iterations"]（默认 3）决定 human_flag 阈值，不再硬编码。
+
     - "organize"   → 审核通过，再过滤一次后入库
-    - "revise"     → 审核未通过但 iteration < 3，LLM 定向修改后回到 review
-    - "human_flag" → 审核未通过且 iteration >= 3，标记人工介入（异常终点）
+    - "revise"     → 审核未通过但 iteration < max，LLM 定向修改后回到 review
+    - "human_flag" → 审核未通过且 iteration >= max，标记人工介入（异常终点）
     """
+    plan = state.get("plan", {}) or {}
+    max_iter = int(plan.get("max_iterations", 3))
+    iteration = state.get("iteration", 0)
+
     if state.get("review_passed", False):
         return "organize"
-    if state.get("iteration", 0) >= 3:
-        print(f"[Router] iteration >= 3，转人工介入")
+    if iteration >= max_iter:
+        print(f"[Router] iteration={iteration} >= max_iterations={max_iter}，转人工介入")
         return "human_flag"
     return "revise"
 
@@ -80,6 +87,8 @@ def build_graph() -> "CompiledGraph":
     """
     graph = StateGraph(KBState)
 
+    # 【新增】注册 plan 节点
+    graph.add_node("plan", planner_node)
     # --- 注册 6 个节点 ---
     graph.add_node("collect", collect_node)
     graph.add_node("analyze", analyze_node)
@@ -89,6 +98,8 @@ def build_graph() -> "CompiledGraph":
     graph.add_node("save", save_node)
     graph.add_node("human_flag", human_flag_node)
 
+    # 【新增】plan → collect 边
+    graph.add_edge("plan", "collect")
     # --- 线性边: collect → analyze → organize ---
     graph.add_edge("collect", "analyze")
     graph.add_edge("analyze", "organize")
@@ -121,8 +132,8 @@ def build_graph() -> "CompiledGraph":
     graph.add_edge("save", END)
     graph.add_edge("human_flag", END)
 
-    # --- 入口 ---
-    graph.set_entry_point("collect")
+    # 【修改】入口从 "collect" 改为 "plan"
+    graph.set_entry_point("plan")
 
     # 编译后返回，调用方拿到即可直接 .invoke() / .stream()
     return graph.compile()

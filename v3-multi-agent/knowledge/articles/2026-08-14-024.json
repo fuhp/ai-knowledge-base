@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-024",
+  "title": "nexu-io/html-video",
+  "source": "github",
+  "url": "https://github.com/nexu-io/html-video",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "面向编码 Agent 的程序化视频工具：本地将 HTML、CSS 与数据渲染为 MP4，提供可插拔渲染引擎、21 套模板与 AI 配乐，Apache-2.0 许可且无按次渲染费用，让 Agent 无需 GUI 视频工具即可产出动态内容。",
+  "tags": [
+    "html-to-video",
+    "coding-agents",
+    "media-generation",
+    "programmatic-video"
+  ],
+  "relevance_score": 0.6,
+  "category": "tooling",
+  "key_insight": "以\"代码渲染视频\"替代 GUI 工具，让 Agent 原生具备视频生产能力。"
+}

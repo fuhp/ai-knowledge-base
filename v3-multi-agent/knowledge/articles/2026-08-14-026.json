@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-026",
+  "title": "OpenBMB/PilotDeck",
+  "source": "github",
+  "url": "https://github.com/OpenBMB/PilotDeck",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "面壁智能（OpenBMB）推出的任务导向 AI Agent 生产力平台，围绕具体任务组织 Agent 能力，提供任务规划、执行与结果管理的一体化工作流。依托国产开源大模型生态，降低企业 Agent 落地门槛。",
+  "tags": [
+    "agent-platform",
+    "productivity",
+    "task-oriented",
+    "openbmb"
+  ],
+  "relevance_score": 0.7,
+  "category": "agent",
+  "key_insight": "任务导向平台化是国产大模型厂商推动 Agent 落地的务实路径。"
+}

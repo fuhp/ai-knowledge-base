@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-011",
+  "title": "unicity-aos/aos-ce",
+  "source": "github",
+  "url": "https://github.com/unicity-aos/aos-ce",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "开源\"Agent 操作系统\"社区版：为 AI Agent 提供任务调度、资源管理、权限控制等系统级运行时，Rust 实现强调可靠性与并发。将 Agent 视为 OS 上的\"进程\"，是 Agent 基础设施操作系统化的代表探索。",
+  "tags": [
+    "agent-os",
+    "agent-infrastructure",
+    "runtime",
+    "rust"
+  ],
+  "relevance_score": 0.75,
+  "category": "infrastructure",
+  "key_insight": "Agent 运行时操作系统化，为规模化部署提供统一抽象与治理能力。"
+}

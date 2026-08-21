@@ -1,0 +1,44 @@
+{
+  "id": "kb-2026-08-14-001",
+  "title": "openclaw",
+  "source": "github-trending",
+  "source_id": "openclaw/openclaw",
+  "url": "https://github.com/openclaw/openclaw",
+  "summary": "以 Gateway 为核心的个人 AI 助手框架，运行在自有设备上，通过 WhatsApp、Telegram、Slack、iMessage 等既有渠道与用户交互。一个 Gateway 统一连接模型、工具、消息渠道与伴侣应用，支持云端与本地模型、Skills、插件系统及 ClawHub 生态。适合追求数据自有、跨平台统一助手的个人用户与开发者，386k stars 印证了其社区影响力。",
+  "analysis": "核心架构是本地控制平面 Gateway + Control UI/CLI/TUI 三入口 + 多渠道适配层，插件 SDK 与 Skill 系统提供可扩展性。创新点在于把个人 AI 助手定位为本地运行、渠道无关的开放平台，数据不出本机。适用场景：个人自动化、跨平台消息助手、企业自托管助手。注意默认工具在宿主直接运行，需配置沙箱以降低安全风险。",
+  "relevance_score": 0.88,
+  "score_breakdown": {
+    "tech_depth": 0.75,
+    "practical_value": 0.90,
+    "timeliness": 0.90,
+    "community_heat": 1.00,
+    "domain_match": 0.95
+  },
+  "tags": [
+    "agent-framework",
+    "personal-assistant",
+    "chatbot",
+    "typescript",
+    "self-hosted"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "Your own personal AI assistant. Any OS. Any Platform. The lobster way.",
+    "stars": 386289,
+    "forks": 81191,
+    "language": "TypeScript",
+    "license": "NOASSERTION",
+    "topics": [
+      "ai",
+      "assistant",
+      "crustacean",
+      "molty",
+      "openclaw",
+      "own-your-data",
+      "personal"
+    ]
+  }
+}

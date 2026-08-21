@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-013",
+  "title": "cloudflare/computer",
+  "source": "github",
+  "url": "https://github.com/cloudflare/computer",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "Cloudflare 推出的\"给 Agent 一台电脑\"能力：为 AI Agent 提供受控的浏览器/计算机操作环境与沙箱，支持 Agent 执行 GUI 操作。背靠 Cloudflare 边缘网络，强调安全隔离与可观测性，是 computer-use 基础设施的重要玩家。",
+  "tags": [
+    "computer-use",
+    "agent-sandbox",
+    "browser-automation",
+    "cloudflare"
+  ],
+  "relevance_score": 0.8,
+  "category": "infrastructure",
+  "key_insight": "云端\"计算机即服务\"成为 Agent 执行 GUI 任务的基础设施，安全沙箱是核心竞争力。"
+}

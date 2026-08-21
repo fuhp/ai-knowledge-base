@@ -1,0 +1,44 @@
+{
+  "id": "kb-2026-08-14-027",
+  "title": "tokentab",
+  "source": "github-trending",
+  "source_id": "wzchav/tokentab",
+  "url": "https://github.com/wzchav/tokentab",
+  "summary": "读取 Claude Code、Codex、Gemini CLI 会话日志并按模型/项目/日期核算 token 费用的 CLI 工具。发布 2 天获 212 stars，直击 AI 工程师的成本管理痛点。",
+  "analysis": "实用价值高：各编码 agent 的会话日志格式不一，统一成本核算与用量分析是团队刚需。适用场景：AI 支出审计、预算管理、模型选择决策（按实际用量比价）。技术简单但切入准，可扩展为多 agent 用量监控面板。",
+  "relevance_score": 0.72,
+  "score_breakdown": {
+    "tech_depth": 0.55,
+    "practical_value": 0.80,
+    "timeliness": 0.95,
+    "community_heat": 0.45,
+    "domain_match": 0.85
+  },
+  "tags": [
+    "token-usage",
+    "cost-tracking",
+    "cli",
+    "claude-code",
+    "python"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "A CLI that reads Claude Code, Codex, and Gemini CLI session logs and works out how much they cost, by model, project, and day.",
+    "stars": 212,
+    "forks": 12,
+    "language": "Python",
+    "license": "MIT",
+    "topics": [
+      "ai",
+      "api",
+      "claude",
+      "claude-code",
+      "claude-tool",
+      "gemini",
+      "token-usage"
+    ]
+  }
+}

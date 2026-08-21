@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-003",
+  "title": "langchain-ai/openwiki",
+  "source": "github",
+  "url": "https://github.com/langchain-ai/openwiki",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "LangChain 官方推出的 CLI 工具，可自动为代码库编写并持续维护面向 Agent 的文档。它让文档随代码演进自动更新，解决 Agent 工作前上下文不足的问题，是\"文档即上下文\"理念的工程化落地，降低 Agent 理解代码库的成本。",
+  "tags": [
+    "agent-documentation",
+    "cli",
+    "codebase-context",
+    "langchain"
+  ],
+  "relevance_score": 0.7,
+  "category": "tooling",
+  "key_insight": "把文档从\"人写\"变为\"Agent 自动维护\"，为编码 Agent 提供持续新鲜的上下文。"
+}

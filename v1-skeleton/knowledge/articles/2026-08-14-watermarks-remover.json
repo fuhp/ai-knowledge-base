@@ -1,0 +1,44 @@
+{
+  "id": "kb-2026-08-14-013",
+  "title": "watermarks-remover",
+  "source": "github-trending",
+  "source_id": "guillaumemeyer/watermarks-remover",
+  "url": "https://github.com/guillaumemeyer/watermarks-remover",
+  "summary": "剥离多厂商 AI 溯源标记的工具集：Layer A 确定性清除隐形 Unicode/双向控制字符，Layer B 通过重写攻击统计性文本水印（SynthID-Text 类），文件层清除 C2PA/EXIF/XMP 元数据，可选 CtrlRegen 后端做像素域水印去除。发布 3 天获 6.6k stars，聚焦处理自有内容的隐私与卫生需求。",
+  "analysis": "技术上有真实深度：分层攻击面（编辑型 Unicode 标记 → 采样统计水印 → 容器元数据 → 像素域），并诚实区分可验证清除与 best-effort 重写。争议点在于可能被滥用制造伪人类内容；项目自身限定为自有内容隐私用途。适用场景：AI 水印攻防研究、C2PA/SynthID 检测评测、内容合规团队。",
+  "relevance_score": 0.82,
+  "score_breakdown": {
+    "tech_depth": 0.80,
+    "practical_value": 0.70,
+    "timeliness": 1.00,
+    "community_heat": 0.80,
+    "domain_match": 0.85
+  },
+  "tags": [
+    "ai-provenance",
+    "watermark-removal",
+    "c2pa",
+    "synthid",
+    "agent-skill"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "Strip multi-vendor AI provenance marks: Unicode text hygiene, statistical rewrite hooks, and C2PA/metadata from PNG/JPEG/SVG/PDF/DOCX/HTML/MD",
+    "stars": 6564,
+    "forks": 696,
+    "language": "Python",
+    "license": "MIT",
+    "topics": [
+      "agent-skill",
+      "ai",
+      "c2pa",
+      "claude",
+      "provenance",
+      "synthid",
+      "watermark"
+    ]
+  }
+}

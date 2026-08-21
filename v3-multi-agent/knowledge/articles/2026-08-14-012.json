@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-012",
+  "title": "trycompai/crm",
+  "source": "github",
+  "url": "https://github.com/trycompai/crm",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "面向 AI Agent 设计的开源 CRM，以\"Agent 优先\"为核心：Agent 可直接读写客户数据、自动执行销售流程，而非事后适配。代表业务系统（SaaS）围绕 Agent 重新设计的趋势。",
+  "tags": [
+    "crm",
+    "agentic-workflow",
+    "business-automation",
+    "saas"
+  ],
+  "relevance_score": 0.65,
+  "category": "application",
+  "key_insight": "\"Agentic-first\"从口号进入业务系统重构，CRM 成为第一批被重写的场景。"
+}

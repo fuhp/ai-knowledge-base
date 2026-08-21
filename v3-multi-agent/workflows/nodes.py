@@ -1,19 +1,19 @@
 """
-workflows/nodes.py — 5 节点 LangGraph 工作流（精简版）
+workflows/nodes.py — LangGraph 工作流节点（collect/analyze/organize/save）
 
-拓扑:
+拓扑（完整图定义见 workflows/graph.py）:
     collect → analyze → organize → review ┬─[pass]→ save → END
-                                          └─[fail]→ organize（带 feedback 修正，循环）
+                                         └─[fail]→ revise → review（循环）
 
 设计要点:
 - 每个节点是纯函数：接收 KBState，返回 dict（部分状态更新）
-- organize 在 iteration > 0 且有 feedback 时调 LLM 做定向修正
-- review 四维度评分；iteration >= 2 强制通过，防止死循环
+- organize 只做过滤低分 + URL 去重，不调 LLM、不修改内容
+- review_node 在 workflows/reviewer.py（5 维度加权评分，代码重算总分）
+- revise_node 在 workflows/reviser.py（据 feedback 用 LLM 定向修改 analyses）
 - save 写 knowledge/articles/*.json 并更新 index.json
 
-注意: 同目录下还有一套 7 节点版本（planner/collector/analyzer/reviewer/
-reviser/organizer/human_flag），是更完整的"职责隔离"实现。本文件是按需求
-精简的 5 节点版本，与那套独立，互不引用。
+注意: review_node / revise_node 不在本文件，分别在 reviewer.py / reviser.py。
+本文件保留 review_node_test 仅供循环路由测试（graph.py 正式运行用 reviewer.py 的版本）。
 """
 
 import json
@@ -144,50 +144,25 @@ URL: {item.get('url', '')}
 
 
 # ---------------------------------------------------------------------------
-# ③ organize_node — 过滤/去重，必要时按 feedback 用 LLM 修正
+# ③ organize_node — 过滤低分 + URL 去重（纯整理，不做 LLM 修正）
 # ---------------------------------------------------------------------------
+# LLM 定向修正已移至独立的 revise_node（workflows/reviser.py），
+# 遵循"职责隔离"原则：organize 只整理，revise 只修改，review 只评分。
 def organize_node(state: KBState) -> dict:
-    """整理节点：过滤低分(<0.6) + URL 去重；iteration > 0 且有 feedback 时调 LLM 定向修正。
+    """整理节点：过滤低分(<0.6) + URL 去重。
 
-    第 1 轮（iteration=0）只做过滤+去重；后续轮次带上 review_feedback
-    让 LLM 定向改 analyses 的弱项，再过滤+去重。
+    纯整理节点，不调用 LLM。审核未通过时的 LLM 定向修正由独立的
+    revise_node 负责（review → revise → review 循环）。
     """
-    print("[Organize] 开始整理（过滤/去重" + ("+修正" if state.get("review_feedback") else "") + "）")
+    print("[Organize] 开始整理（过滤/去重）")
 
     analyses = state.get("analyses", [])
-    iteration = state.get("iteration", 0)
-    feedback = state.get("review_feedback", "")
-    tracker = state.get("cost_tracker", {})
 
-    # Step 1: iteration > 0 且有 feedback → LLM 定向修正
-    if iteration > 0 and feedback:
-        prompt = f"""你是知识库编辑。根据审核反馈定向修改这些分析结果。
-
-【审核反馈】
-{feedback}
-
-【当前分析结果】
-{json.dumps(analyses, ensure_ascii=False, indent=2)}
-
-要求:
-- 重点改进反馈指出的弱项
-- 保留已不错的部分，不要过度修改
-- 保持字段结构不变
-- 返回修改后的 JSON 数组（与输入同结构）"""
-        try:
-            revised, usage = chat_json(prompt, temperature=0.4)
-            tracker = accumulate_usage(tracker, usage)
-            if isinstance(revised, list) and revised:
-                analyses = revised
-                print(f"[Organize] LLM 修正 {len(analyses)} 条")
-        except Exception as e:
-            print(f"[Organize] LLM 修正失败，沿用原 analyses: {e}")
-
-    # Step 2: 过滤低分（< 0.6）
+    # Step 1: 过滤低分（< 0.6）
     threshold = 0.6
     qualified = [a for a in analyses if a.get("relevance_score", 0) >= threshold]
 
-    # Step 3: URL 去重
+    # Step 2: URL 去重
     seen: set[str] = set()
     unique: list[dict] = []
     for item in qualified:
@@ -199,88 +174,58 @@ def organize_node(state: KBState) -> dict:
         unique.append(item)
 
     print(f"[Organize] 过滤+去重后剩 {len(unique)} 条")
-    return {"analyses": unique, "cost_tracker": tracker}
+    return {"analyses": unique}
 
 
 # ---------------------------------------------------------------------------
-# ④ review_node — LLM 四维度评分，iteration >= 2 强制通过
+# ④ review_node — 【临时测试版】模拟审核循环：前 3 次不通过，第 4 次起强制通过
 # ---------------------------------------------------------------------------
+# ⚠️ 临时测试代码：用于验证 3 路条件路由（organize / revise / human_flag）。
+# 阈值对齐 graph.py 的 route_after_review：iteration >= 3 → human_flag。
+# 因此 iteration 0/1/2 都不通过，第 3 次审核（输出 iteration=3）由路由判 human_flag 终止。
+# iteration >= 3 的强制通过仅作防御性兜底（正常情况下路由会先终止）。
 def review_node(state: KBState) -> dict:
-    """审核节点：四维度评分（摘要质量/标签准确/分类合理/一致性）。
+    """审核节点（临时测试版）：模拟审核循环，不调用 LLM。
 
-    输出 JSON: {"passed": bool, "overall_score": float, "feedback": str, "scores": {...}}
-    iteration >= 2 时强制通过，防止无限循环。
-    LLM 调用失败时自动通过，不阻塞流程。
+    行为（阈值与 graph.py 的 human_flag 阈值 >=3 对齐）:
+    - iteration 0 (第 1 次审核) → review_passed=False，feedback 指出摘要质量问题
+    - iteration 1 (第 2 次审核) → review_passed=False，feedback 指出标签问题
+    - iteration 2 (第 3 次审核) → review_passed=False，feedback 指出分类与一致性问题
+      （此时输出 iteration=3，route_after_review 判 iter>=3 → human_flag 终止）
+    - iteration >= 3 → review_passed=True，强制通过（防御性兜底，正常不可达）
+    每次打印当前 iteration 和 review_passed 值。
     """
-    print("[Review] 开始审核")
+    print("[Review] 开始审核（临时测试模式，不调 LLM）")
 
-    analyses = state.get("analyses", [])
     iteration = state.get("iteration", 0)
     tracker = state.get("cost_tracker", {})
 
-    # 强制通过：达到上限 iteration
-    if iteration >= 2:
-        print(f"[Review] iteration={iteration} >= 2，强制通过")
-        return {
-            "review_passed": True,
-            "review_feedback": "达到最大迭代次数，强制通过",
-            "iteration": iteration + 1,
-            "cost_tracker": tracker,
-        }
-
-    if not analyses:
-        return {
-            "review_passed": True,
-            "review_feedback": "无条目需要审核",
-            "iteration": iteration + 1,
-            "cost_tracker": tracker,
-        }
-
-    sample = analyses[:5]
-    prompt = f"""你是知识库质量审核员。请审核以下分析结果：
-
-{json.dumps(sample, ensure_ascii=False, indent=2)}
-
-按四个维度评分（每项 1-5 分）:
-1. summary_quality  - 摘要质量（准确、简洁、有洞察）
-2. tag_accuracy      - 标签准确（与内容匹配、英文小写）
-3. category_fit      - 分类合理（category 与项目主题一致）
-4. consistency       - 一致性（字段完整、各字段间无矛盾）
-
-用 JSON 返回:
-{{
-  "passed": true,
-  "overall_score": 4.2,
-  "feedback": "具体改进建议，指出弱项",
-  "scores": {{
-    "summary_quality": 4,
-    "tag_accuracy": 5,
-    "category_fit": 4,
-    "consistency": 4
-  }}
-}}
-
-当前是第 {iteration + 1} 次审核。"""
-
-    try:
-        result, usage = chat_json(
-            prompt,
-            system="你是严格但公正的知识库审核员。给出具体可操作的反馈。",
-            temperature=0.1,
-        )
-        tracker = accumulate_usage(tracker, usage)
-
-        passed = bool(result.get("passed", False))
-        overall = float(result.get("overall_score", 0))
-        feedback = result.get("feedback", "")
-        scores = result.get("scores", {})
-
-        print(f"[Review] 总分 {overall}/5, 通过={passed}, 第 {iteration + 1} 次")
-        print(f"[Review] 各维度: {scores}")
-    except Exception as e:
-        print(f"[Review] 审核失败，自动通过: {e}")
+    # 防御性兜底：iteration >= 3 强制通过（正常由路由在 iter>=3 时转 human_flag，不会到此）
+    if iteration >= 3:
         passed = True
-        feedback = f"审核 LLM 调用失败: {e}，自动通过"
+        feedback = "第4次及以后审核：强制通过（测试模式兜底）"
+    else:
+        passed = False
+        if iteration == 0:
+            feedback = (
+                "第1次审核反馈：摘要质量不足，部分条目 summary 过短（<100字），"
+                "缺少技术原理与实现细节，请扩充并补充关键洞察。"
+            )
+        elif iteration == 1:
+            feedback = (
+                "第2次审核反馈：标签准确性仍有问题，存在重复标签、"
+                "大小写不一致（应英文小写）、部分条目 category 与项目主题不匹配，"
+                "请规范化 tags 并修正 category。"
+            )
+        else:  # iteration == 2
+            feedback = (
+                "第3次审核反馈：分类与一致性仍有问题，部分条目 category 归类不当、"
+                "summary 与 tags 语义不一致、key_insight 偏空泛，"
+                "请对齐分类并强化洞察。"
+            )
+
+    print(f"[Review] iteration={iteration}, review_passed={passed}")
+    print(f"[Review] feedback={feedback}")
 
     return {
         "review_passed": passed,

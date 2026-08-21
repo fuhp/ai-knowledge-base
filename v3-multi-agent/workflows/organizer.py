@@ -28,7 +28,7 @@ def organize_node(state: KBState) -> dict:
     plan = state.get("plan", {}) or {}
     tracker = state.get("cost_tracker", {})
 
-    threshold = float(plan.get("relevance_threshold", 0.6))
+    threshold = float(plan.get("relevance_threshold", 0.5))
 
     # Step 1: 相关性过滤
     qualified = [a for a in analyses if a.get("relevance_score", 0) >= threshold]

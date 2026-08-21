@@ -1,0 +1,383 @@
+{
+  "last_updated": "2026-08-14T14:40:00Z",
+  "total_count": 27,
+  "entries": [
+    {
+      "id": "kb-2026-08-14-001",
+      "title": "openclaw",
+      "file": "2026-08-14-openclaw.json",
+      "tags": [
+        "agent-framework",
+        "personal-assistant",
+        "chatbot",
+        "typescript",
+        "self-hosted"
+      ],
+      "relevance_score": 0.88,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-002",
+      "title": "superpowers",
+      "file": "2026-08-14-superpowers.json",
+      "tags": [
+        "agent-framework",
+        "agent-skills",
+        "code-generation",
+        "subagent-driven-development",
+        "test-driven-development"
+      ],
+      "relevance_score": 0.91,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-003",
+      "title": "hermes-agent",
+      "file": "2026-08-14-hermes-agent.json",
+      "tags": [
+        "agent-framework",
+        "personal-assistant",
+        "multi-agent",
+        "python",
+        "anthropic"
+      ],
+      "relevance_score": 0.87,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-004",
+      "title": "n8n",
+      "file": "2026-08-14-n8n.json",
+      "tags": [
+        "workflow-automation",
+        "agent-framework",
+        "mcp",
+        "low-code",
+        "self-hosted"
+      ],
+      "relevance_score": 0.88,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-005",
+      "title": "opencode",
+      "file": "2026-08-14-opencode.json",
+      "tags": [
+        "coding-agent",
+        "code-assistant",
+        "cli",
+        "typescript",
+        "agent-framework"
+      ],
+      "relevance_score": 0.90,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-006",
+      "title": "AutoGPT",
+      "file": "2026-08-14-autogpt.json",
+      "tags": [
+        "agent-framework",
+        "autonomous-agents",
+        "python",
+        "multi-agent"
+      ],
+      "relevance_score": 0.80,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-007",
+      "title": "ollama",
+      "file": "2026-08-14-ollama.json",
+      "tags": [
+        "large-language-model",
+        "local-inference",
+        "model-serving",
+        "go",
+        "self-hosted"
+      ],
+      "relevance_score": 0.90,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-008",
+      "title": "skills",
+      "file": "2026-08-14-skills.json",
+      "tags": [
+        "agent-skills",
+        "anthropic",
+        "claude",
+        "prompt-engineering",
+        "agent-framework"
+      ],
+      "relevance_score": 0.92,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-009",
+      "title": "firecrawl",
+      "file": "2026-08-14-firecrawl.json",
+      "tags": [
+        "web-scraping",
+        "rag",
+        "data-extraction",
+        "crawler",
+        "llm-tools"
+      ],
+      "relevance_score": 0.86,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-010",
+      "title": "transformers",
+      "file": "2026-08-14-transformers.json",
+      "tags": [
+        "transformer",
+        "large-language-model",
+        "huggingface",
+        "pytorch",
+        "deep-learning"
+      ],
+      "relevance_score": 0.94,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-011",
+      "title": "langflow",
+      "file": "2026-08-14-langflow.json",
+      "tags": [
+        "agent-framework",
+        "low-code",
+        "workflow-automation",
+        "rag",
+        "langchain"
+      ],
+      "relevance_score": 0.82,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-012",
+      "title": "dify",
+      "file": "2026-08-14-dify.json",
+      "tags": [
+        "agent-framework",
+        "rag",
+        "workflow-automation",
+        "mcp",
+        "low-code"
+      ],
+      "relevance_score": 0.89,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-013",
+      "title": "watermarks-remover",
+      "file": "2026-08-14-watermarks-remover.json",
+      "tags": [
+        "ai-provenance",
+        "watermark-removal",
+        "c2pa",
+        "synthid",
+        "agent-skill"
+      ],
+      "relevance_score": 0.82,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-014",
+      "title": "book-to-skill",
+      "file": "2026-08-14-book-to-skill.json",
+      "tags": [
+        "agent-skills",
+        "claude-code",
+        "pdf",
+        "knowledge-base",
+        "skill-generation"
+      ],
+      "relevance_score": 0.77,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-015",
+      "title": "pi-from-scratch",
+      "file": "2026-08-14-pi-from-scratch.json",
+      "tags": [
+        "coding-agent",
+        "tool-calling",
+        "agent-loop",
+        "typescript",
+        "tutorial"
+      ],
+      "relevance_score": 0.74,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-016",
+      "title": "chatbot-template",
+      "file": "2026-08-14-chatbot-template.json",
+      "tags": [
+        "chatbot",
+        "nextjs",
+        "template",
+        "ai-sdk",
+        "vercel"
+      ],
+      "relevance_score": 0.72,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-017",
+      "title": "airship",
+      "file": "2026-08-14-airship.json",
+      "tags": [
+        "visual-editor",
+        "coding-agent",
+        "claude-code",
+        "codex",
+        "opencode"
+      ],
+      "relevance_score": 0.74,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-018",
+      "title": "eve-software-factory-template",
+      "file": "2026-08-14-eve-software-factory-template.json",
+      "tags": [
+        "multi-agent",
+        "agent-framework",
+        "vercel",
+        "software-factory",
+        "ci-cd"
+      ],
+      "relevance_score": 0.78,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-019",
+      "title": "KADATH",
+      "file": "2026-08-14-kadath.json",
+      "tags": [
+        "multi-agent",
+        "evolutionary-algorithms",
+        "agent-evaluation",
+        "self-evolving-agents",
+        "genetic-algorithm"
+      ],
+      "relevance_score": 0.76,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-020",
+      "title": "rakazo",
+      "file": "2026-08-14-rakazo.json",
+      "tags": [
+        "chatbot",
+        "self-hosted",
+        "docker",
+        "grok",
+        "ai-agents"
+      ],
+      "relevance_score": 0.71,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-021",
+      "title": "dsh-vision-toolkit",
+      "file": "2026-08-14-dsh-vision-toolkit.json",
+      "tags": [
+        "computer-vision",
+        "ocr",
+        "deepseek",
+        "agent-toolkit",
+        "plugin"
+      ],
+      "relevance_score": 0.73,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-022",
+      "title": "moli",
+      "file": "2026-08-14-moli.json",
+      "tags": [
+        "browser-automation",
+        "rust",
+        "servo",
+        "headless-browser",
+        "ai-agents"
+      ],
+      "relevance_score": 0.78,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-023",
+      "title": "agent-safe-pipeline",
+      "file": "2026-08-14-agent-safe-pipeline.json",
+      "tags": [
+        "ai-governance",
+        "authorization",
+        "human-in-the-loop",
+        "policy-as-code",
+        "mcp"
+      ],
+      "relevance_score": 0.77,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-024",
+      "title": "Hermes-Bot-Mode",
+      "file": "2026-08-14-hermes-bot-mode.json",
+      "tags": [
+        "multi-agent",
+        "desktop",
+        "plugin",
+        "bot-to-bot",
+        "agent-framework"
+      ],
+      "relevance_score": 0.67,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-025",
+      "title": "dsh-agent-teams",
+      "file": "2026-08-14-dsh-agent-teams.json",
+      "tags": [
+        "multi-agent",
+        "deepseek",
+        "agent-framework",
+        "plugin",
+        "orchestration"
+      ],
+      "relevance_score": 0.72,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-026",
+      "title": "loomfeed",
+      "file": "2026-08-14-loomfeed.json",
+      "tags": [
+        "community-platform",
+        "mcp",
+        "go",
+        "nextjs",
+        "ai-agents"
+      ],
+      "relevance_score": 0.67,
+      "organized_at": "2026-08-14T14:40:00Z"
+    },
+    {
+      "id": "kb-2026-08-14-027",
+      "title": "tokentab",
+      "file": "2026-08-14-tokentab.json",
+      "tags": [
+        "token-usage",
+        "cost-tracking",
+        "cli",
+        "claude-code",
+        "python"
+      ],
+      "relevance_score": 0.72,
+      "organized_at": "2026-08-14T14:40:00Z"
+    }
+  ]
+}

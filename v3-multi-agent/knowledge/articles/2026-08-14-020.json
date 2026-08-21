@@ -1,0 +1,18 @@
+{
+  "id": "2026-08-14-020",
+  "title": "basketikun/infinite-canvas",
+  "source": "github",
+  "url": "https://github.com/basketikun/infinite-canvas",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "面向 AI 创作的开源无限画布工作台，集成 AI 生图、参考图编辑、视频生成、Agent 智能助手与画布编排，支持多 Agent 协同的可视化创作流程，兼容 OpenAI 接口生态及 chatgpt2api、grok2api、newapi 等多种渠道。",
+  "tags": [
+    "ai-canvas",
+    "image-generation",
+    "video-generation",
+    "multi-agent",
+    "creative-workflow"
+  ],
+  "relevance_score": 0.7,
+  "category": "application",
+  "key_insight": "无限画布成为多模态创作 Agent 的可视化编排界面，渠道兼容性降低接入成本。"
+}

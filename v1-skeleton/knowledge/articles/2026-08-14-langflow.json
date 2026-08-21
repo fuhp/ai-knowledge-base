@@ -1,0 +1,43 @@
+{
+  "id": "kb-2026-08-14-011",
+  "title": "langflow",
+  "source": "github-trending",
+  "source_id": "langflow-ai/langflow",
+  "url": "https://github.com/langflow-ai/langflow",
+  "summary": "基于 React Flow 的可视化低代码平台，拖拽式构建 Agent 与 RAG 工作流，底层基于 LangChain/LangGraph，支持 100+ 组件与模型提供商，可一键部署为 API。153k stars。定位是让不懂代码的业务人员也能搭建 LLM 应用。",
+  "analysis": "核心价值：把 LangChain 生态包装为可视化节点图，降低 agent 构建门槛；产出可导出为 Python 代码进一步工程化。适用场景：快速原型、业务侧自服务 AI 应用、教学演示。相比 Dify 更偏开发工具，相比 n8n 更聚焦 AI 场景。",
+  "relevance_score": 0.82,
+  "score_breakdown": {
+    "tech_depth": 0.60,
+    "practical_value": 0.85,
+    "timeliness": 0.85,
+    "community_heat": 1.00,
+    "domain_match": 0.90
+  },
+  "tags": [
+    "agent-framework",
+    "low-code",
+    "workflow-automation",
+    "rag",
+    "langchain"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows.",
+    "stars": 153235,
+    "forks": 9860,
+    "language": "Python",
+    "license": "MIT",
+    "topics": [
+      "agents",
+      "chatgpt",
+      "generative-ai",
+      "large-language-models",
+      "multiagent",
+      "react-flow"
+    ]
+  }
+}

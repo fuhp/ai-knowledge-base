@@ -1,0 +1,47 @@
+{
+  "id": "kb-2026-08-14-015",
+  "title": "pi-from-scratch",
+  "source": "github-trending",
+  "source_id": "SaladDay/pi-from-scratch",
+  "url": "https://github.com/SaladDay/pi-from-scratch",
+  "summary": "用 600 行 TypeScript 从零实现迷你版 pi 编码智能体，完整覆盖 agent loop、工具调用、上下文管理，代码即教程。发布 5 天获 957 stars，是理解 coding agent 内部机制的最佳入门材料。",
+  "analysis": "教学价值突出：把 coding agent 的核心循环（读文件 → 调模型 → 执行工具 → 迭代）压缩到可读的 600 行，无框架依赖。适用场景：想理解 agent 底层机制的工程师、准备自研 agent 的团队、教学演示。与阅读 agent 框架源码相比，学习曲线陡降。",
+  "relevance_score": 0.74,
+  "score_breakdown": {
+    "tech_depth": 0.65,
+    "practical_value": 0.70,
+    "timeliness": 0.95,
+    "community_heat": 0.60,
+    "domain_match": 0.90
+  },
+  "tags": [
+    "coding-agent",
+    "tool-calling",
+    "agent-loop",
+    "typescript",
+    "tutorial"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "600 行 TypeScript 写成的超级迷你版 pi，让你轻松从 0 写出属于你的 pi-agent",
+    "stars": 957,
+    "forks": 64,
+    "language": "TypeScript",
+    "license": "MIT",
+    "topics": [
+      "agent-loop",
+      "ai-agent",
+      "coding-agent",
+      "llm",
+      "llm-agent",
+      "pi",
+      "pi-agent",
+      "tool-calling",
+      "typescript",
+      "typescript-tutorial"
+    ]
+  }
+}

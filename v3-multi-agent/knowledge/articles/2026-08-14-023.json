@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-023",
+  "title": "vercel/eve",
+  "source": "github",
+  "url": "https://github.com/vercel/eve",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "Vercel 推出的开放 Agent 构建框架，提供构建、部署与运行 AI Agent 的标准化工具链。依托 Vercel 平台优势，强调与前端/全栈生态的集成，降低生产级 Agent 应用的上线门槛。",
+  "tags": [
+    "agent-framework",
+    "typescript",
+    "vercel",
+    "production-deployment"
+  ],
+  "relevance_score": 0.8,
+  "category": "agent",
+  "key_insight": "大厂入场 Agent 框架，竞争焦点从\"能跑通\"转向\"能上线、可运维\"。"
+}

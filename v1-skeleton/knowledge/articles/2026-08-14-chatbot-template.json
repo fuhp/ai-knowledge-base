@@ -1,0 +1,41 @@
+{
+  "id": "kb-2026-08-14-016",
+  "title": "chatbot-template",
+  "source": "github-trending",
+  "source_id": "shadcn-ui/chatbot-template",
+  "url": "https://github.com/shadcn-ui/chatbot-template",
+  "summary": "shadcn 官方极简聊天机器人模板：Next.js + AI SDK + shadcn/ui 组件栈，运行于 Vercel AI Gateway，支持流式对话与多模型切换。发布 3 天获 664 stars，作为 UI 层起步模板开箱即用。",
+  "analysis": "价值在「极简 + 权威」：shadcn 团队出品保证代码质量与维护性，AI SDK 与 Vercel AI Gateway 组合是当前最顺滑的托管路径。适用场景：快速搭建 chatbot 前端、验证对话类产品概念。技术深度有限，属于脚手架而非框架。",
+  "relevance_score": 0.72,
+  "score_breakdown": {
+    "tech_depth": 0.55,
+    "practical_value": 0.75,
+    "timeliness": 0.95,
+    "community_heat": 0.55,
+    "domain_match": 0.85
+  },
+  "tags": [
+    "chatbot",
+    "nextjs",
+    "template",
+    "ai-sdk",
+    "vercel"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "A minimal chatbot template built with Next.js, AI SDK, shadcn/ui, shadcn/react, shadcn/typeset. It runs on the Vercel AI Gateway.",
+    "stars": 664,
+    "forks": 59,
+    "language": "TypeScript",
+    "license": "MIT",
+    "topics": [
+      "ai",
+      "chatbot",
+      "nextjs",
+      "template"
+    ]
+  }
+}

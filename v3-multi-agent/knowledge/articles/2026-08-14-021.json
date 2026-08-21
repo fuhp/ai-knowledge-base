@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-021",
+  "title": "oomol-lab/open-connector",
+  "source": "github",
+  "url": "https://github.com/oomol-lab/open-connector",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "开源认证网关，通过 SDK、CLI、MCP、HTTP 与 OpenAPI 将 1000+ SaaS 服务接入 AI Agent。统一处理 OAuth 授权、令牌管理与权限治理，解决 Agent 连接企业系统的认证碎片化问题。",
+  "tags": [
+    "auth-gateway",
+    "mcp",
+    "saas-integration",
+    "oauth"
+  ],
+  "relevance_score": 0.75,
+  "category": "tooling",
+  "key_insight": "Agent 连接企业 SaaS 的认证层成为基础设施级需求，网关模式统一授权治理。"
+}

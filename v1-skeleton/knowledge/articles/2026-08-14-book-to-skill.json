@@ -1,0 +1,57 @@
+{
+  "id": "kb-2026-08-14-014",
+  "title": "book-to-skill",
+  "source": "github-trending",
+  "source_id": "Leutenegger/book-to-skill",
+  "url": "https://github.com/Leutenegger/book-to-skill",
+  "summary": "把技术书籍 PDF 一键转换为 Claude Code Skill：解析 PDF 结构，提取章节与代码片段，按 SKILL.md 规范组织，让编码 agent 在工作时随时引用书籍内容。发布 24 小时即获 1050 stars，命中「给 agent 注入领域知识」的热点需求。",
+  "analysis": "核心思路：PDF → 结构化知识 → 可渐进加载的 agent skill，把书籍变成 agent 的随身参考书。适用场景：团队内部规范手册、领域专著、课程讲义的知识注入；也可扩展为任意长文档的 skill 化管道。局限：依赖 PDF 文本层质量，扫描版需先 OCR。",
+  "relevance_score": 0.77,
+  "score_breakdown": {
+    "tech_depth": 0.60,
+    "practical_value": 0.80,
+    "timeliness": 1.00,
+    "community_heat": 0.60,
+    "domain_match": 0.90
+  },
+  "tags": [
+    "agent-skills",
+    "claude-code",
+    "pdf",
+    "knowledge-base",
+    "skill-generation"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "Turn any technical book PDF into a Claude Code skill — ready to study, reference, and use while you work.",
+    "stars": 1050,
+    "forks": 134,
+    "language": "Python",
+    "license": "MIT",
+    "topics": [
+      "agent",
+      "agent-memory",
+      "agent-skill",
+      "agent-skills",
+      "agentic",
+      "agentic-ai",
+      "agents",
+      "ai-agents",
+      "claude",
+      "claude-code",
+      "claude-code-plugin",
+      "claude-skills",
+      "github-copilot",
+      "pdf",
+      "pdf-document",
+      "pdf-generation",
+      "pdf-parser",
+      "pdf-tools",
+      "pdf-viewer",
+      "skill-generator"
+    ]
+  }
+}

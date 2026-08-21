@@ -1,0 +1,52 @@
+{
+  "id": "kb-2026-08-14-007",
+  "title": "ollama",
+  "source": "github-trending",
+  "source_id": "ollama/ollama",
+  "url": "https://github.com/ollama/ollama",
+  "summary": "一条命令在本地运行开源大模型的工具链，支持 Kimi-K2.6、GLM-5.2、MiniMax、DeepSeek、Qwen、Gemma、Llama 等模型，内置量化、模型管理与本地 API 服务。Go 实现，178k stars。是本地推理与隐私敏感场景的事实标准，被大量 Agent 框架作为默认本地后端。",
+  "analysis": "核心价值：模型拉取、量化、运行一体化，提供 OpenAI 兼容 API 便于无缝切换后端。适用场景：本地 RAG、离线 Agent、数据隐私敏感的推理、模型评测。与 llama.cpp 相比更强调开箱即用与模型生态管理。",
+  "relevance_score": 0.90,
+  "score_breakdown": {
+    "tech_depth": 0.80,
+    "practical_value": 0.95,
+    "timeliness": 0.85,
+    "community_heat": 1.00,
+    "domain_match": 0.90
+  },
+  "tags": [
+    "large-language-model",
+    "local-inference",
+    "model-serving",
+    "go",
+    "self-hosted"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "Get up and running with Kimi-K2.6, GLM-5.2, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
+    "stars": 178529,
+    "forks": 17407,
+    "language": "Go",
+    "license": "MIT",
+    "topics": [
+      "deepseek",
+      "gemma",
+      "gemma3",
+      "glm",
+      "go",
+      "golang",
+      "gpt-oss",
+      "llama",
+      "llama3",
+      "llm",
+      "llms",
+      "minimax",
+      "mistral",
+      "ollama",
+      "qwen"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "kb-2026-08-14-002",
+  "title": "superpowers",
+  "source": "github-trending",
+  "source_id": "obra/superpowers",
+  "url": "https://github.com/obra/superpowers",
+  "summary": "面向编码 Agent 的可组合 Skills 框架与开发方法论，覆盖 brainstorming → 计划 → subagent-driven-development → TDD → 代码评审的完整流程。强调红绿重构、YAGNI、DRY，每个任务派发独立子代理执行两阶段评审。兼容 Claude Code、Codex、Cursor、Gemini CLI 等主流编码工具，272k stars。",
+  "analysis": "核心创新是把软件工程方法论编码为自动触发的 Skill 集合，agent 执行任务前必须检查并遵循强制工作流；subagent-driven-development 用全新子代理加两阶段评审（规格符合性 → 代码质量）保证产出质量。适用场景：希望编码 agent 稳定产出工程级代码的团队与个人；跨 harness 可移植性是其最大实用价值。",
+  "relevance_score": 0.91,
+  "score_breakdown": {
+    "tech_depth": 0.85,
+    "practical_value": 0.95,
+    "timeliness": 0.85,
+    "community_heat": 1.00,
+    "domain_match": 0.95
+  },
+  "tags": [
+    "agent-framework",
+    "agent-skills",
+    "code-generation",
+    "subagent-driven-development",
+    "test-driven-development"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "An agentic skills framework & software development methodology that works.",
+    "stars": 272003,
+    "forks": 24327,
+    "language": "Shell",
+    "license": "MIT",
+    "topics": [
+      "ai",
+      "brainstorming",
+      "coding",
+      "obra",
+      "sdlc",
+      "skills",
+      "subagent-driven-development",
+      "superpowers"
+    ]
+  }
+}

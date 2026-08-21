@@ -1,0 +1,56 @@
+{
+  "id": "kb-2026-08-14-010",
+  "title": "transformers",
+  "source": "github-trending",
+  "source_id": "huggingface/transformers",
+  "url": "https://github.com/huggingface/transformers",
+  "summary": "Hugging Face 的模型定义框架，覆盖文本、视觉、音频与多模态的前沿模型，支持推理与训练，统一了 PyTorch/JAX 等后端。164k stars，是整个 LLM 生态的底座级项目：模型加载、微调、pipeline 的标准接口。",
+  "analysis": "对 AI 工程师的基础设施价值不可替代——几乎任何模型实验、微调、部署都以它为起点。近期持续接入 DeepSeek、GLM、Qwen 等新模型。适用场景：模型微调与评测、多模态应用、学术研究。与 vLLM 等推理框架互补：transformers 负责模型定义与训练，vLLM 负责高吞吐服务。",
+  "relevance_score": 0.94,
+  "score_breakdown": {
+    "tech_depth": 0.95,
+    "practical_value": 0.95,
+    "timeliness": 0.85,
+    "community_heat": 1.00,
+    "domain_match": 0.95
+  },
+  "tags": [
+    "transformer",
+    "large-language-model",
+    "huggingface",
+    "pytorch",
+    "deep-learning"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.",
+    "stars": 164108,
+    "forks": 34250,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "topics": [
+      "audio",
+      "deep-learning",
+      "deepseek",
+      "gemma",
+      "glm",
+      "hacktoberfest",
+      "llm",
+      "machine-learning",
+      "model-hub",
+      "natural-language-processing",
+      "nlp",
+      "pretrained-models",
+      "python",
+      "pytorch",
+      "pytorch-transformers",
+      "qwen",
+      "speech-recognition",
+      "transformer",
+      "vlm"
+    ]
+  }
+}

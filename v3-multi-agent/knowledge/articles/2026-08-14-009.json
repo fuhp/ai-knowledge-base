@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-009",
+  "title": "helloianneo/ian-xiaohei-illustrations",
+  "source": "github",
+  "url": "https://github.com/helloianneo/ian-xiaohei-illustrations",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "面向中文\"小黑怪诞\"风格正文配图生成的 Codex Skill，支持 16:9 白底手绘风格与少量红橙蓝批注。展示了 Agent Skill 在内容创作垂直场景（中文自媒体配图）的模板化封装方式。",
+  "tags": [
+    "agent-skill",
+    "illustration",
+    "image-generation",
+    "chinese-content"
+  ],
+  "relevance_score": 0.6,
+  "category": "skill",
+  "key_insight": "Agent Skill 下沉到中文内容配图等垂直场景，封装风格化模板降低创作门槛。"
+}

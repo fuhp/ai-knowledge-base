@@ -1,0 +1,47 @@
+{
+  "id": "kb-2026-08-14-022",
+  "title": "moli",
+  "source": "github-trending",
+  "source_id": "lexmount/moli",
+  "url": "https://github.com/lexmount/moli",
+  "summary": "Rust 编写的面向 AI Agent 的无头浏览器，基于 Servo 内核而非 Chromium 封装。按需渲染架构：结构优先（DOM 操作零布局成本），仅需要时才计算布局与像素。CDP/WebDriver Classic/BiDi 三协议同端口，Playwright 可直接连接。混合抓取测试成功率 53.6%，中位内存 73MiB（Chromium 为 773MiB）。",
+  "analysis": "工程含金量高：完整浏览器内核（V8 + Stylo + Taffy/Parley），160 万+ WPT 测试通过，资源占用比 Chromium 低一个数量级。适用场景：大规模爬取、browser-use agent、检索管道、RL 训练环境的浏览器后端。对 agent 基础设施团队是重要候选组件。",
+  "relevance_score": 0.78,
+  "score_breakdown": {
+    "tech_depth": 0.85,
+    "practical_value": 0.75,
+    "timeliness": 0.95,
+    "community_heat": 0.45,
+    "domain_match": 0.85
+  },
+  "tags": [
+    "browser-automation",
+    "rust",
+    "servo",
+    "headless-browser",
+    "ai-agents"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "Best browser for AI agents, built in Rust.",
+    "stars": 275,
+    "forks": 20,
+    "language": "Rust",
+    "license": "NOASSERTION",
+    "topics": [
+      "ai-agents",
+      "ai-tools",
+      "browser",
+      "browser-automation",
+      "cloud-browser",
+      "playwright",
+      "puppeteer",
+      "rust",
+      "servo",
+      "web"
+    ]
+  }
+}

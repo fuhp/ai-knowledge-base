@@ -1,0 +1,38 @@
+{
+  "id": "kb-2026-08-14-008",
+  "title": "skills",
+  "source": "github-trending",
+  "source_id": "anthropics/skills",
+  "url": "https://github.com/anthropics/skills",
+  "summary": "Anthropic 官方 Agent Skills 公共仓库，汇集可复用的智能体技能（文档处理、数据生成、代码评审等），是 Agent Skills 规范的权威参考实现与官方示例库。169k stars，Python 为主。对任何构建 skills 的团队，这是学习 SKILL.md 规范与最佳实践的第一手资料。",
+  "analysis": "核心价值在于定义了 Agent Skills 的事实标准——SKILL.md 格式、渐进式加载、资源打包方式。适用场景：为 Claude Code / Codex / OpenCode 等编写自定义 skill、研究 Anthropic 官方技能工程化实践。注意 license 为 null，商业复用需谨慎确认条款。",
+  "relevance_score": 0.92,
+  "score_breakdown": {
+    "tech_depth": 0.85,
+    "practical_value": 0.95,
+    "timeliness": 0.90,
+    "community_heat": 1.00,
+    "domain_match": 0.95
+  },
+  "tags": [
+    "agent-skills",
+    "anthropic",
+    "claude",
+    "prompt-engineering",
+    "agent-framework"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "Public repository for Agent Skills",
+    "stars": 169349,
+    "forks": 20156,
+    "language": "Python",
+    "license": null,
+    "topics": [
+      "agent-skills"
+    ]
+  }
+}

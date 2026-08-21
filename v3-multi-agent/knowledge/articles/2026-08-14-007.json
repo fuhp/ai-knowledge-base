@@ -1,0 +1,18 @@
+{
+  "id": "2026-08-14-007",
+  "title": "lidge-jun/opencodex",
+  "source": "github",
+  "url": "https://github.com/lidge-jun/opencodex",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "通用提供商代理，让 OpenAI Codex 与 Claude Code 的 CLI、App、SDK 可以使用任意 LLM 后端（Claude、Gemini、Grok、DeepSeek、Ollama 等）。打破官方客户端与模型的绑定，为用户提供模型自由选择权，是编码 Agent 生态\"去锁定化\"的代表工具。",
+  "tags": [
+    "llm-proxy",
+    "multi-provider",
+    "codex",
+    "claude-code",
+    "vendor-neutral"
+  ],
+  "relevance_score": 0.75,
+  "category": "tooling",
+  "key_insight": "编码 Agent 客户端与模型解耦是生态成熟的标志，代理层成为基础设施。"
+}

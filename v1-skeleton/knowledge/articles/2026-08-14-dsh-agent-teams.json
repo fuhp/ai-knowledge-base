@@ -1,0 +1,42 @@
+{
+  "id": "kb-2026-08-14-025",
+  "title": "dsh-agent-teams",
+  "source": "github-trending",
+  "source_id": "NanmiCoder/dsh-agent-teams",
+  "url": "https://github.com/NanmiCoder/dsh-agent-teams",
+  "summary": "DeepSeek Harness 的 AgentTeams 插件，移植 Claude Code AgentTeams 语义：创建团队（队长为当前会话）→ 拉成员（可续聊子代理）→ 拆任务声明依赖 → 成员间直连消息（邮箱直达 + 唤醒，无队长中转）。一条命令安装，Web GUI 右上角实时团队面板。",
+  "analysis": "核心价值：把「多 agent 团队协作」做成自然语言驱动的插件，成员间去中心化通信避免队长瓶颈。适用场景：DeepSeek Harness 用户做复杂调研/开发任务的并行 agent 编排。对研究 Claude Code 插件协议与多 agent 通信设计的开发者有参考意义。",
+  "relevance_score": 0.72,
+  "score_breakdown": {
+    "tech_depth": 0.65,
+    "practical_value": 0.70,
+    "timeliness": 0.95,
+    "community_heat": 0.45,
+    "domain_match": 0.90
+  },
+  "tags": [
+    "multi-agent",
+    "deepseek",
+    "agent-framework",
+    "plugin",
+    "orchestration"
+  ],
+  "collected_at": "2026-08-14T12:16:13Z",
+  "analyzed_at": "2026-08-14T13:30:00Z",
+  "organized_at": "2026-08-14T14:40:00Z",
+  "status": "published",
+  "metadata": {
+    "description": "AgentTeams plugin for DeepSeek Harness",
+    "stars": 213,
+    "forks": 20,
+    "language": "TypeScript",
+    "license": "MIT",
+    "topics": [
+      "agentteams",
+      "deepseekharness",
+      "dsh",
+      "dsh-agent-teams",
+      "dsh-plugin"
+    ]
+  }
+}

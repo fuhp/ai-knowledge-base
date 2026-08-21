@@ -1,0 +1,17 @@
+{
+  "id": "2026-08-14-015",
+  "title": "MoonshotAI/kimi-code",
+  "source": "github",
+  "url": "https://github.com/MoonshotAI/kimi-code",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "月之暗面推出的 Kimi Code CLI，定位\"下一代 Agent 的起点\"。将 Kimi 模型能力包装为编码 Agent 命令行入口，覆盖代码生成、审查与任务执行，是国产大模型厂商构建自主编码 Agent 工具链的关键一步。",
+  "tags": [
+    "coding-agent",
+    "cli",
+    "moonshot",
+    "kimi"
+  ],
+  "relevance_score": 0.8,
+  "category": "agent",
+  "key_insight": "国产头部模型厂商加速推出自主编码 Agent CLI，工具链竞争白热化。"
+}

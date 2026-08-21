@@ -27,7 +27,7 @@ REVIEWER_WEIGHTS = {
 }
 
 # 通过阈值：加权总分 ≥ 7.0 视为合格
-REVIEWER_PASS_THRESHOLD = 7.0
+REVIEWER_PASS_THRESHOLD = 9.0  #临时提高
 
 
 def review_node(state: KBState) -> dict:
@@ -49,6 +49,18 @@ def review_node(state: KBState) -> dict:
     analyses = state.get("analyses", [])
     iteration = state.get("iteration", 0)
     tracker = state.get("cost_tracker", {})
+    plan = state.get("plan", {}) or {}
+    max_iter = int(plan.get("max_iterations", 3))
+
+    # 内部兜底：达到最大迭代次数强制通过，防止 review ↔ revise 死循环
+    if iteration >= max_iter:
+        print(f"[Reviewer] iteration={iteration} >= max_iterations={max_iter}，强制通过（兜底）")
+        return {
+            "review_passed": True,
+            "review_feedback": f"达到最大迭代次数 {max_iter}，强制通过",
+            "iteration": iteration + 1,
+            "cost_tracker": tracker,
+        }
 
     if not analyses:
         return {

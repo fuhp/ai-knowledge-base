@@ -1,0 +1,18 @@
+{
+  "id": "2026-08-14-001",
+  "title": "xai-org/grok-build",
+  "source": "github",
+  "url": "https://github.com/xai-org/grok-build",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "xAI（SpaceXAI）推出的编码 Agent 执行框架与终端 UI（TUI），支持全屏、鼠标交互与扩展。作为 Grok 生态的编码入口，为开发者提供可定制、可扩展的 Agent 运行环境，是主流大模型厂商在编码 Agent 赛道的重要布局。",
+  "tags": [
+    "coding-agent",
+    "tui",
+    "agent-harness",
+    "xai",
+    "rust"
+  ],
+  "relevance_score": 0.9,
+  "category": "agent",
+  "key_insight": "头部大模型厂商 xAI 正式入场编码 Agent 工具链，Rust 实现强调性能与可扩展性。"
+}

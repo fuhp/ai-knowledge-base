@@ -1,0 +1,18 @@
+{
+  "id": "2026-08-14-002",
+  "title": "alibaba/open-code-review",
+  "source": "github",
+  "url": "https://github.com/alibaba/open-code-review",
+  "collected_at": "2026-08-14T12:08:14Z",
+  "summary": "阿里巴巴开源的代码评审工具，采用\"确定性流水线 + LLM Agent\"混合架构，历经阿里规模实战验证。支持行级精准评论，内置覆盖 NPE、线程安全、XSS、SQL 注入的多语言规则集，兼容 OpenAI 与 Anthropic API，兼具静态分析的确定性与 LLM 的语义理解能力。",
+  "tags": [
+    "code-review",
+    "llm-agent",
+    "hybrid-architecture",
+    "static-analysis",
+    "alibaba"
+  ],
+  "relevance_score": 0.85,
+  "category": "agent",
+  "key_insight": "确定性规则与 LLM Agent 混合架构是工程级 AI 代码评审的成熟范式。"
+}
